@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "elan-ratemusic-app",
+  "name": "ratemusic-app",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+ }
