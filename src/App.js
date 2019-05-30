@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import LoginPage from './routes/LoginPage/LoginPage'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
 import AlbumListPage from './routes/AlbumListPage/AlbumListPage'
+import AlbumReviewsPage from './routes/ReviewPage/ReviewPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import Header from './components/Header/Header'
 
@@ -40,6 +41,10 @@ class App extends Component {
             <Route
               path="/albums"
               component={AlbumListPage}
+            />
+            <Route
+              path="/albums/:album_id"
+              component={AlbumReviewsPage}
             />
             <Route
               component={NotFoundPage}

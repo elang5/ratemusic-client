@@ -12,12 +12,12 @@ const AlbumContext = React.createContext({
   album: nullAlbum,
   reviews: [],
   error: null,
-  setError,
-  clearError,
-  setAlbum,
-  clearAlbum,
-  setReviews,
-  addReview
+  setError: () => {},
+  clearError: () => {},
+  setAlbum: () => {},
+  clearAlbum: () => {},
+  setReviews: () => {},
+  addReview: () => {}
 })
 
 export default AlbumContext
@@ -70,4 +70,3 @@ export class AlbumProvider extends Component {
   }
 }
 
-export default AlbumProvider

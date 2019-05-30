@@ -10,7 +10,7 @@ const AuthApiService = {
       body: JSON.stringify(credentials)
     })
       .then(res => {
-        (!res.ok)
+        return (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       })
@@ -24,7 +24,7 @@ const AuthApiService = {
       body: JSON.stringify(user)
     })
       .then(res => {
-        (!res.ok)
+        return (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       })

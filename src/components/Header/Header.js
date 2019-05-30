@@ -26,11 +26,11 @@ export default function Header() {
             Charts
           </Link>
         </div> */}
-        <div className="reviews">
+        {/* <div className="reviews">
           <Link className="reviews" to="/reviews">
             Reviews
           </Link>
-        </div>
+        </div> */}
         <div className="login">
           <Link className="login" to="/login">
             Login

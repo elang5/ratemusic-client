@@ -11,7 +11,7 @@ const AlbumsApiService = {
       
   },
   getAlbum(albumId) {
-    return fetch(`${config.API_asdfasdadsENDPOINT}/albums/${albumId}`)
+    return fetch(`${config.API_ENDPOINT}/albums/${albumId}`)
       .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))

@@ -11,13 +11,8 @@ export class ReviewForm extends Component {
     const { title, rating, content } = e.target
 
     AlbumApiService.postReview(album.id, album.user_id, title, rating, content)
-      .then(this.context.addReview)
-      .then(() => {
-        title.value = '',
-        rating.value = '',
-        content.value = ''
-      })
-      .catch(this.context.setError)
+      .then(this.context.addReview())
+      .catch(this.context.setError())
   }
   render() {
     return (
