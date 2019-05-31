@@ -4,9 +4,10 @@ import { Route, Switch } from 'react-router-dom'
 import LoginPage from './routes/LoginPage/LoginPage'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
 import AlbumListPage from './routes/AlbumListPage/AlbumListPage'
-import AlbumReviewsPage from './routes/ReviewPage/ReviewPage'
+import AlbumReviewsPage from './routes/ReviewListPage/ReviewListPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import Header from './components/Header/Header'
+import ReviewForm from './components/ReviewForm/ReviewForm';
 
 class App extends Component {
   state = { 
@@ -27,24 +28,28 @@ class App extends Component {
           {this.state.hasError && <p className="error">There was an error! Sorry!</p>}
           <Switch>
             <Route
-              exact path="/"
+              exact path={"/"}
               component={AlbumListPage}
             />
             <Route 
-              path="/register"
+              path={"/register"}
               component={RegistrationPage}
             />
             <Route
-              path="/login"
+              path={"/login"}
               component={LoginPage}
             />
             <Route
-              path="/albums"
+              exact path={"/albums"}
               component={AlbumListPage}
             />
             <Route
-              path="/albums/:album_id"
+              path={"/albums/:albumId"}
               component={AlbumReviewsPage}
+            />
+            <Route
+              path={"/reviews"}
+              component={ReviewForm}
             />
             <Route
               component={NotFoundPage}

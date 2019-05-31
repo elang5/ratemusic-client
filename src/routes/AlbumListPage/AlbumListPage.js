@@ -29,7 +29,7 @@ export class AlbumListPage extends Component {
       )
   }
   render() {
-    const { error } = this.context
+    const { error } = this.state
     return (
       <section className="album-list-page">
         {error
