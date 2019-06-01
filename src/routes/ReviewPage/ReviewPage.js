@@ -8,7 +8,6 @@ export class ReviewPage extends Component {
 
   componentDidMount() {
     const { reviewId } = this.props.match.params
-    console.log(reviewId)
     AlbumApiService.getAlbumReviews(reviewId)
       .then(res => {
         const review = res[0]
@@ -19,7 +18,6 @@ export class ReviewPage extends Component {
 
   render() {
     const { review } = this.state
-    console.log(review)
     return (
       <div className="review-page">
         <p>{review.title}</p>

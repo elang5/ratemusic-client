@@ -5,13 +5,13 @@ export class ReviewItem extends Component {
   render() {
     const { review } = this.props
     return (
-      <Link to={`/reviews/${review.id}`} className="album">
       <div className="review">
-          <img src={review.image} alt={review.title}/>
+        <Link to={`/reviews/${review.id}`} className="album">
+          <p className="review-title">{review.title}</p>
+        </Link>
+          <img src={review.image} alt={review.id}/>
           <span className="review-rating">{review.rating}</span>
-          <span className="review-title">{review.title}</span>
       </div>
-    </Link>
     )
   }
 }

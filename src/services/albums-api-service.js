@@ -24,7 +24,7 @@ const AlbumsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json())
   },
-  postReview(albumId, userId, title, content, rating) {
+  postReview(albumId, title, content, rating) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',
       headers: {
@@ -33,7 +33,6 @@ const AlbumsApiService = {
       },
       body: JSON.stringify({
         album_id: albumId,
-        user_id: userId,
         title,
         rating,
         content

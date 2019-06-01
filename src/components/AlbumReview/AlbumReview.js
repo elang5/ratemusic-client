@@ -8,7 +8,7 @@ export class AlbumReview extends Component {
       <Link to={`/albums/${album.id}/reviews`} className="reviews">
         <div className="grid">
           <div className="box">
-            <img src={album.art} alt={album.title}/>
+            <img src={album.art} alt={album.id}/>
             <p className="album-rating">{album.rating}</p>
           </div>
         </div>

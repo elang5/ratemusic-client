@@ -53,7 +53,7 @@ class App extends Component {
               component={ReviewPage}
             />
             <Route
-              path={"/reviews"}
+              path={"/:albumId/reviews"}
               component={ReviewForm}
             />
             <Route

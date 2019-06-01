@@ -1,5 +1,6 @@
 import AlbumApiService from '../../services/albums-api-service'
 import ReviewItem from '../../components/ReviewItem/ReviewItem'
+import { Link } from 'react-router-dom'
 
 import React, { Component } from 'react'
 
@@ -25,10 +26,13 @@ export class AlbumReviewsPage extends Component {
 
   render() {
     const { reviews } = this.state
-    console.log(reviews)
+    const { albumId } = this.props.match.params
     return (
       <section className="album-reviews-page">
         {reviews.map(review => <ReviewItem key={review.id} review={review} />)}
+        <Link to={`/${albumId}/reviews`}>
+          Post a Review!
+        </Link>
       </section>
     )
   }
