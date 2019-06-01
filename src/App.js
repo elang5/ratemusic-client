@@ -5,9 +5,10 @@ import LoginPage from './routes/LoginPage/LoginPage'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
 import AlbumListPage from './routes/AlbumListPage/AlbumListPage'
 import AlbumReviewsPage from './routes/ReviewListPage/ReviewListPage'
+import ReviewForm from './components/ReviewForm/ReviewForm'
+import ReviewPage from './routes/ReviewPage/ReviewPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import Header from './components/Header/Header'
-import ReviewForm from './components/ReviewForm/ReviewForm';
 
 class App extends Component {
   state = { 
@@ -46,6 +47,10 @@ class App extends Component {
             <Route
               path={"/albums/:albumId"}
               component={AlbumReviewsPage}
+            />
+            <Route
+              path={"/reviews/:reviewId/"}
+              component={ReviewPage}
             />
             <Route
               path={"/reviews"}
