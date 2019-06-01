@@ -3,7 +3,8 @@ import AlbumApiService from '../../services/albums-api-service'
 
 export class ReviewPage extends Component {
   state = {
-    review: []
+    review: [],
+    album: []
   }
 
   componentDidMount() {
@@ -15,13 +16,21 @@ export class ReviewPage extends Component {
       .catch(err => this.setState({ error: err.error }))
   }
 
+  handleGetAlbum() {
+    AlbumApiService.getAlbum(this.props.match.params.albumId)
+      .then(res => this.setState({ album: res }))
+      .catch(err => this.setState({ error: err.error }))
+  }
+
   render() {
-    const { review } = this.state
+    {this.handleGetAlbum()}
+    const { review, album } = this.state
     return (
       <div className="review-page">
+        <img src={album.art} alt={album.title} />
         <p>{`Title: ${review.title}`}</p>
         <p>{`Rating: ${review.rating}`}</p>
-        <p>{review.title}</p>
+        <p>{review.content}</p>
       </div>
     )
   }
