@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AlbumApiService from '../../services/albums-api-service'
 import AlbumItem from '../../components/AlbumItem/AlbumItem'
+import AlbumsApiService from '../../services/albums-api-service';
 
 export class AlbumListPage extends Component {
   // static contextType = AlbumListContext
@@ -25,9 +26,23 @@ export class AlbumListPage extends Component {
       <AlbumItem
         key={album.id}
         album={album}
+        rating={this.getAverageRatings(album.id)}
       />
       )
   }
+  
+  getAverageRatings(albumId) {
+    const { albums } = this.state
+    const averageRating = AlbumsApiService.getAlbumReviews(albumId)
+        .then(res => res.reduce((sum, review) => {
+          return (sum + review.rating)
+        }, 0) / res.length)
+        .then(value => parseFloat(value).toFixed(2))
+        .then(rating => albums[albumId - 1].rating = rating)
+        .catch(err => this.setState({ error: err.error }))
+    return averageRating
+  }
+
   render() {
     const { error } = this.state
     return (

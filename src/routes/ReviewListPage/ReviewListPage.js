@@ -4,24 +4,41 @@ import { Link } from 'react-router-dom'
 
 import React, { Component } from 'react'
 
-export class AlbumReviewsPage extends Component {
+export class ReviewListPage extends Component {
   static defaultProps = {
     match: { params: {} }
   }
 
-  state = {
-    reviews: [],
-    error: null
+  constructor(props) {
+    super(props)
+
+    this._isMounted = false
+
+    this.state = {
+      reviews: [],
+      error: null
+    }
   }
 
   componentDidMount() {
+
+    this._isMounted = true
     const { albumId } = this.props.match.params
-    // AlbumApiService.getAlbum(albumId)
-    //   .then(res => this.setState({ reviews: [...res] }))
-    //   .catch(res => this.setState({ error: res.error }))
-    AlbumApiService.getAlbumReviews(albumId)
+    this._isMounted && AlbumApiService.getAlbumReviews(albumId)
       .then(res => this.setState({ reviews: [...res] }))
       .catch(res => this.setState({ error: res.error }))
+  }
+
+  componentDidUpdate() {
+    this._isMounted = true
+    const { albumId } = this.props.match.params
+    this._isMounted && AlbumApiService.getAlbumReviews(albumId)
+      .then(res => this.setState({ reviews: [...res] }))
+      .catch(res => this.setState({ error: res.error }))
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 
   render() {
@@ -38,4 +55,4 @@ export class AlbumReviewsPage extends Component {
   }
 }
 
-export default AlbumReviewsPage
+export default ReviewListPage

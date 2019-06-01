@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import LoginPage from './routes/LoginPage/LoginPage'
 import RegistrationPage from './routes/RegistrationPage/RegistrationPage'
 import AlbumListPage from './routes/AlbumListPage/AlbumListPage'
-import AlbumReviewsPage from './routes/ReviewListPage/ReviewListPage'
+import ReviewListPage from './routes/ReviewListPage/ReviewListPage'
 import ReviewForm from './components/ReviewForm/ReviewForm'
 import ReviewPage from './routes/ReviewPage/ReviewPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
@@ -46,7 +46,7 @@ class App extends Component {
             />
             <Route
               exact path={"/albums/:albumId"}
-              component={AlbumReviewsPage}
+              component={ReviewListPage}
             />
             <Route
               path={"/albums/:albumId/reviews/:reviewId"}
