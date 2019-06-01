@@ -10,6 +10,7 @@ export class ReviewItem extends Component {
           <p className="review-title">{review.title}</p>
         </Link>
           <span className="review-rating">{review.rating}</span>
+          {/* <button className="delete-review-btn" onClick={handleDelete(review.id)}>Delete Review</button> */}
       </div>
     )
   }

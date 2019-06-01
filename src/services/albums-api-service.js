@@ -50,7 +50,21 @@ const AlbumsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
         )
+      },
+  deleteReview(reviewId) {
+    return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
+    })
+      .then(res => 
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+        )
+    }
   }
 
   export default AlbumsApiService

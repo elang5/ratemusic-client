@@ -4,7 +4,6 @@ import AlbumItem from '../../components/AlbumItem/AlbumItem'
 import AlbumsApiService from '../../services/albums-api-service';
 
 export class AlbumListPage extends Component {
-  // static contextType = AlbumListContext
   state = {
     albums: [],
     error: null,
@@ -37,7 +36,7 @@ export class AlbumListPage extends Component {
         .then(res => res.reduce((sum, review) => {
           return (sum + review.rating)
         }, 0) / res.length)
-        .then(value => parseFloat(value).toFixed(2))
+        .then(value => parseFloat(value).toFixed(1))
         .then(rating => albums[albumId - 1].rating = rating)
         .catch(err => this.setState({ error: err.error }))
     return averageRating

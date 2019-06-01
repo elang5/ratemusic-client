@@ -26,7 +26,7 @@ export class ReviewListPage extends Component {
     const { albumId } = this.props.match.params
     this._isMounted && AlbumApiService.getAlbumReviews(albumId)
       .then(res => this.setState({ reviews: [...res] }))
-      .catch(res => this.setState({ error: res.error }))
+      .catch(err => this.setState({ error: err.error }))
   }
 
   componentDidUpdate() {
@@ -34,18 +34,24 @@ export class ReviewListPage extends Component {
     const { albumId } = this.props.match.params
     this._isMounted && AlbumApiService.getAlbumReviews(albumId)
       .then(res => this.setState({ reviews: [...res] }))
-      .catch(res => this.setState({ error: res.error }))
+      .catch(err => this.setState({ error: err.error }))
   }
 
   componentWillUnmount() {
     this._isMounted = false
   }
 
+  // handleDeleteReview = id => {
+  //   AlbumApiService.deleteReview(id)
+  //     .catch(err => this.setState({ error: err.error }))
+  // }
+
   render() {
-    const { reviews } = this.state
+    const { reviews, error } = this.state
     const { albumId } = this.props.match.params
     return (
       <section className="album-reviews-page">
+        {error && <p className="error">{error}</p>}
         {reviews.map(review => <ReviewItem key={review.id} review={review} />)}
         <Link to={`/${albumId}/reviews`}>
           Post a Review!
