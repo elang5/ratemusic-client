@@ -4,7 +4,8 @@ import AlbumApiService from '../../services/albums-api-service'
 export class ReviewForm extends Component {
   state = {
     error: null,
-    album: []
+    album: [],
+    review: []
   }
 
   componentDidMount() {
@@ -17,10 +18,12 @@ export class ReviewForm extends Component {
     e.preventDefault()
     const { albumId } = this.props.match.params
     const { title, content, rating } = e.target
+    const { history } = this.props
     AlbumApiService.postReview(albumId, title.value, content.value, rating.value)
-      .then(console.log('success!'))
+      .then(res => this.setState({ review: res }), history.push(`/albums/${albumId}`))
       .catch(err => this.setState({ error: err.error }))
   }
+
   render() {
     const { error, album } = this.state
     return (
@@ -47,6 +50,11 @@ export class ReviewForm extends Component {
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
           </div>
           <div className="content">

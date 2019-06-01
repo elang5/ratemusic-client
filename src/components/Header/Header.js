@@ -35,11 +35,6 @@ export default function Header() {
             Login
           </Link>
         </div>
-        <div className="post-review">
-          <Link className="post-review" to={"/reviews"}>
-            Post A Review!
-          </Link>
-        </div>
       </nav>
     </header>
   )
