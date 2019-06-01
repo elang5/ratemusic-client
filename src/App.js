@@ -45,11 +45,11 @@ class App extends Component {
               component={AlbumListPage}
             />
             <Route
-              path={"/albums/:albumId"}
+              exact path={"/albums/:albumId"}
               component={AlbumReviewsPage}
             />
             <Route
-              path={"/reviews/:reviewId/"}
+              path={"/albums/:albumId/reviews/:reviewId"}
               component={ReviewPage}
             />
             <Route

@@ -24,6 +24,13 @@ const AlbumsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json())
   },
+  getAlbumReview(albumId, reviewId) {
+    return fetch(`${config.API_ENDPOINT}/albums/${albumId}/reviews/${reviewId}`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json())
+  },
   postReview(albumId, title, content, rating) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',

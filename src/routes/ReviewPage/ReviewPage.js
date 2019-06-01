@@ -7,11 +7,10 @@ export class ReviewPage extends Component {
   }
 
   componentDidMount() {
-    const { reviewId } = this.props.match.params
-    AlbumApiService.getAlbumReviews(reviewId)
+    const { albumId, reviewId } = this.props.match.params
+    AlbumApiService.getAlbumReview(albumId, reviewId)
       .then(res => {
-        const review = res[0]
-        this.setState({ review: review })
+        this.setState({ review: res[0] })
       })
       .catch(err => this.setState({ error: err.error }))
   }
@@ -20,10 +19,9 @@ export class ReviewPage extends Component {
     const { review } = this.state
     return (
       <div className="review-page">
+        <p>{`Title: ${review.title}`}</p>
+        <p>{`Rating: ${review.rating}`}</p>
         <p>{review.title}</p>
-        <img src="{review.image}" alt="{review.title}"/>
-        <p>{review.rating}</p>
-        <p>{review.content}</p>
       </div>
     )
   }
