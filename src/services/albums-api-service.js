@@ -51,6 +51,9 @@ const AlbumsApiService = {
           : res.json()
         )
       },
+  getReviewUsers(){
+
+  },
   deleteReview(reviewId) {
     return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
       method: 'DELETE',

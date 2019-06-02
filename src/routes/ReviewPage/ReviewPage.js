@@ -5,9 +5,6 @@ export class ReviewPage extends Component {
   constructor(props) {
     super(props)
 
-    // memory leak fix
-    this._isMounted = false
-
     this.state = {
       review: [],
       album: []
@@ -15,19 +12,12 @@ export class ReviewPage extends Component {
   }
 
   componentDidMount() {
-    // memory leak fix
-    this._isMounted = true
     const { albumId, reviewId } = this.props.match.params
-    this._isMounted && AlbumApiService.getAlbumReview(albumId, reviewId)
+    AlbumApiService.getAlbumReview(albumId, reviewId)
       .then(res => {
         this.setState({ review: res[0] })
       })
       .catch(err => this.setState({ error: err.error }))
-  }
-
-  componentWillUnmount() {
-    // memory leak fix
-    this._isMounted = false
   }
 
   handleGetAlbum() {

@@ -12,8 +12,6 @@ export class ReviewListPage extends Component {
   constructor(props) {
     super(props)
 
-    this._isMounted = false
-
     this.state = {
       reviews: [],
       error: null
@@ -21,26 +19,18 @@ export class ReviewListPage extends Component {
   }
 
   componentDidMount() {
-
-    this._isMounted = true
     const { albumId } = this.props.match.params
-    this._isMounted && AlbumApiService.getAlbumReviews(albumId)
+    AlbumApiService.getAlbumReviews(albumId)
       .then(res => this.setState({ reviews: [...res] }))
       .catch(err => this.setState({ error: err.error }))
   }
 
-  componentDidUpdate() {
-    this._isMounted = true
-    const { albumId } = this.props.match.params
-    this._isMounted && AlbumApiService.getAlbumReviews(albumId)
-      .then(res => this.setState({ reviews: [...res] }))
-      .catch(err => this.setState({ error: err.error }))
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false
-  }
-
+  // componentDidUpdate() {
+  //   const { albumId } = this.props.match.params
+  //   AlbumApiService.getAlbumReviews(albumId)
+  //     .then(res => this.setState({ reviews: [...res] }))
+  //     .catch(err => this.setState({ error: err.error }))
+  // }
   // handleDeleteReview = id => {
   //   AlbumApiService.deleteReview(id)
   //     .catch(err => this.setState({ error: err.error }))
