@@ -62,13 +62,6 @@ export class RegistrationForm extends Component {
             name="password"
             id="password"
             />
-          {/* <label htmlFor="password-repeat">Repeat Password</label> */}
-          {/* <input 
-            required
-            type="text"
-            name="password-repeat"
-            id="password-repeat"
-            /> */}
         </div>
         <button type="submit">
           Register

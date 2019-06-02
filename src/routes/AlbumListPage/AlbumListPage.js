@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AlbumApiService from '../../services/albums-api-service'
 import AlbumItem from '../../components/AlbumItem/AlbumItem'
 import AlbumsApiService from '../../services/albums-api-service';
+import SearchForm from '../../components/SearchForm/SearchForm';
 
 export class AlbumListPage extends Component {
   state = {
@@ -19,7 +20,7 @@ export class AlbumListPage extends Component {
       }))
   }
 
-  renderAlbums() {
+  renderAlbums = () => {
     const { albums } = this.state
     return albums.map(album => 
       <AlbumItem
@@ -29,8 +30,18 @@ export class AlbumListPage extends Component {
       />
       )
   }
+
+  searchAlbums = (album) => {
+    const { albums } = this.state
+    const matchedAlbums = albums.filter(albumName => {
+      return albumName.title.includes(album)
+    })
+    this.setState({
+      albums: matchedAlbums
+    })
+  }
   
-  getAverageRatings(albumId) {
+  getAverageRatings = (albumId) => {
     const { albums } = this.state
     const averageRating = AlbumsApiService.getAlbumReviews(albumId)
         .then(res => res.reduce((sum, review) => {
@@ -46,6 +57,7 @@ export class AlbumListPage extends Component {
     const { error } = this.state
     return (
       <section className="album-list-page">
+      <SearchForm name={'Search for Albums: '} getAlbums={this.searchAlbums} />
         {error
         ? <p className="error">There was an error. Please try again.</p>
         : this.renderAlbums()}
