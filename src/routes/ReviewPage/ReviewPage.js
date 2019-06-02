@@ -33,6 +33,7 @@ export class ReviewPage extends Component {
       <div className="review-page">
         <img src={album.art} alt={album.title} />
         <p>{`Title: ${review.title}`}</p>
+        <p>{`By: ${review.user_name}`}</p>
         <p>{`Rating: ${review.rating}`}</p>
         <p>{review.content}</p>
       </div>
