@@ -1,9 +1,21 @@
 .album-list-page {
-  padding: 1.5rem;
+  padding: .5rem;
 }
 
 .album-list {
+  padding: 0;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.container {
+  text-align: center;
+}
+
+@media only screen and (max-width: 720px) {
+  .album-list-page {
+    display: grid;
+    justify-content: center;
+  }
 }

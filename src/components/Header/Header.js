@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       <nav role="navigation" className="navbar" id="sidenav" style={open ? {marginLeft: "0"} : {marginLeft: "-22.4%"}}>
-        <div className="nav-item menu">
+        <div className="nav-item close menu">
           <Menu 
             id="closebtn" 
             className="svg menu" 

@@ -26,9 +26,9 @@ export default class AlbumSearchForm extends Component {
       >
         <h1 className="red">RateMusic</h1>
         <div className="input-fields">
-          <label htmlFor="album_search">
+          <label htmlFor="album_search" className="search-label">
             {this.props.name}
-          </label>
+          </label><br />
           <input type="text" id="album_search" name="album_search" />
         </div>
         <div className="button-container">

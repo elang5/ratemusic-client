@@ -1,8 +1,8 @@
 #sidenav {
   height: 100%;
   position: fixed;
-  width: 22.4%;
-  background-color: #000000;
+  width: 15%;
+  background-color: #1f1f21;
   transition: 0.5s;
   display: flex;
   flex-flow: column nowrap;
@@ -24,11 +24,19 @@ div.logo {
   background-color: #1f1f21;
 }
 
-.nav-text {
-  font-weight: bold;
-  color: rgba(252, 61, 57, 0.73);
-  margin: 0 auto;
-  padding: 15px;
+@media only screen and (min-width: 720px) {
+  .nav-text {
+    font-weight: bold;
+    color: rgba(252, 61, 57, 0.73);
+    margin: 0 auto;
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .nav-text {
+    display: none;
+  }
 }
 
 .svg.menu {
@@ -42,7 +50,7 @@ div.logo {
 }
 
 .nav-item:hover, .nav-item:active {
-  background-color: rgba(252, 61, 57, 0.73);
+  background-color: rgba(252, 60, 57, 0.345);
 }
 
 div.albums {
@@ -64,8 +72,8 @@ div.nav-item.social {
 div.open {
   position: fixed;
   padding-left: 5px;
+  height: 20%;
 }
-
 
 
 

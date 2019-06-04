@@ -63,9 +63,11 @@ export class AlbumListPage extends Component {
         <SearchForm name={'Search for Albums: '} getAlbums={this.searchAlbums} />
         <section className="album-list-page">
           {error && <p className="error">There was an error. Please try again.</p>}
-          <ul className="album-list">
-            {this.renderAlbums()}
-          </ul>
+          <div className="container">
+            <ul className="album-list">
+              {this.renderAlbums()}
+            </ul>
+          </div>
         </section>
       </>
     )
