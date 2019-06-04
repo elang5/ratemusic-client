@@ -11,7 +11,7 @@
   font-size: 18px;
 }
 
-button {
+.button-container > button {
   padding: 9px 13px;
   border-radius: 3px;
   box-shadow: 4px #1f1f21;

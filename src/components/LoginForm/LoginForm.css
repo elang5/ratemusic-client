@@ -1,0 +1,47 @@
+.login-form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+  width: 65%;
+  height: 62%;
+  border-radius: 5.5px;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+}
+
+.sign-in {
+  color: #1f1f21;
+  font-size: 24px;
+}
+
+.label {
+  font-size: 18px;
+  color: #1f1f21;
+}
+
+#user_name {
+  margin-bottom: .5em;
+}
+
+#user_name, #password {
+  margin-top: 1em;
+  width: 41.5%;
+  padding: 15px 20px;
+  border-radius: 2.2px;
+  border: solid 0.6px rgba(208, 208, 208, 0.5);
+  background-color: #e5e9ed;
+  font-size: 20px;
+}
+
+
+.submit-btn {
+  width: 41.5%;
+  padding: 15px 20px;
+  background-color: rgb(252, 60, 57);
+  margin: 1em 0;
+  border-radius: 2.2px;
+  font-size: 20px;
+  color: white;
+  font-weight: 200;
+}

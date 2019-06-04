@@ -34,25 +34,25 @@ export default function Header() {
             <h3 className="nav-text">CLOSE</h3>
         </div>
         <div className="nav-item logo">
-          <NavLink className="link logo" to={"/albums"}>
+          <NavLink className="link logo" to={"/albums"} onClick={(e) => handleSetClose(e)}>
             <Logo className="svg logo"/>
           </NavLink>
           <h3 className="nav-text logo">RM</h3>
         </div>
         <div className="nav-item register">
-          <NavLink className="link register" to={"/register"}>
+          <NavLink className="link register" to={"/register"} onClick={(e) => handleSetClose(e)}>
             <Register className="svg register" />
           </NavLink>
           <h3 className="nav-text register">REGISTER</h3>
         </div>
         <div className="nav-item albums">
-          <NavLink className="link albums" to={"/albums"}>
+          <NavLink className="link albums" to={"/albums"} onClick={(e) => handleSetClose(e)}>
             <Album className="svg album" />
           </NavLink>
           <h3 className="nav-text albums">ALBUMS</h3>
         </div>
         <div className="nav-item login">
-          <NavLink className="link login" to={"/login"}>
+          <NavLink className="link login" to={"/login"} onClick={(e) => handleSetClose(e)}>
             <Login className="svg login" />
           </NavLink>
           <h3 className="nav-text login">LOGIN</h3>
