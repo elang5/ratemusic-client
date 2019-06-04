@@ -1,0 +1,20 @@
+.search-form {
+  position: absolute;
+  top: 1em;
+}
+
+
+#album_search {
+  font-size: 18px;
+}
+
+button {
+  padding: 8px 10px;
+  border-radius: 2px;
+  box-shadow: 4px #1f1f21;
+}
+
+.button-container {
+  text-align: center;
+  padding-top: .5em;
+}

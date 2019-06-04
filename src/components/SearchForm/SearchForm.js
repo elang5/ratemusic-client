@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './SearchForm.css'
 
 export default class AlbumSearchForm extends Component {
   static defaultProps = {
@@ -28,9 +29,11 @@ export default class AlbumSearchForm extends Component {
           </label>
           <input type="text" id="album_search" name="album_search" />
         </div>
-        <button type="submit">
-          Search
-        </button>
+        <div className="button-container">
+          <button type="submit">
+            Search
+          </button>
+        </div>
       </form>
     )
   }

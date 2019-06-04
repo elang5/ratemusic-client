@@ -1,9 +1,6 @@
-/* .header {
-  position: relative;
-} */
-
 #sidenav {
   height: 100%;
+  position: fixed;
   width: 22.4%;
   background-color: #000000;
   transition: 0.5s;
@@ -57,4 +54,14 @@ div.albums {
 #closebtn, #openbtn {
   cursor: pointer;
 }
+
+div.nav-item.social {
+  background-color: #1f1f21;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+
 
