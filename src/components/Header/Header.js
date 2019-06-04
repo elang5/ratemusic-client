@@ -11,9 +11,15 @@ export default function Header() {
   const [open, setOpen ] = useState(false)
 
   return (
-    <header className="header">
+    <>
       <nav role="navigation" className="navbar" id="sidenav" style={open ? {marginLeft: "0"} : {marginLeft: "-200px"}}>
-        <Menu id="closebtn" className="svg menu" onClick={() => setOpen(false)} />
+        <div className="nav-item menu">
+          <Menu 
+            id="closebtn" 
+            className="svg menu" 
+            onClick={() => setOpen(false)} />
+            <h3 className="nav-text">CLOSE</h3>
+        </div>
         <div className="nav-item logo">
           <NavLink className="link logo" to={"/albums"}>
             <Logo className="svg logo"/>
@@ -39,7 +45,16 @@ export default function Header() {
           <h3 className="nav-text login">LOGIN</h3>
         </div>
       </nav>
-      <Menu id="openbtn" className="svg menu" onClick={() => setOpen(true)} />
-    </header>
+      <div 
+        className="open"
+        onClick={() => {
+          setOpen(true)}}
+        >
+        <Menu 
+          id="openbtn" 
+          className="svg menu closebtn" 
+        />
+      </div>
+    </>
   )
 }
