@@ -13,7 +13,6 @@
   flex-flow: column nowrap;
   align-items: center;
   height: 16.7%;
-
 }
 
 .link {
@@ -61,6 +60,11 @@ div.nav-item.social {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
+}
+
+div.open {
+  position: fixed;
+  padding-left: 5px;
 }
 
 

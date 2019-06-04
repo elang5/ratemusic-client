@@ -24,7 +24,7 @@ export class AlbumListPage extends Component {
   renderAlbums = () => {
     const { albums } = this.state
     return albums.map(album =>
-      <li className="album">
+      <li className="album" key={album.id}>
         <AlbumItem
           key={album.id}
           album={album}

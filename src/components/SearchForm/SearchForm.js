@@ -19,10 +19,12 @@ export default class AlbumSearchForm extends Component {
   }
   render() {
     return (
+      <header>
       <form 
         className="search-form" 
         onSubmit={this.handleSearchSubmit}
       >
+        <h1 className="red">RateMusic</h1>
         <div className="input-fields">
           <label htmlFor="album_search">
             {this.props.name}
@@ -35,6 +37,7 @@ export default class AlbumSearchForm extends Component {
           </button>
         </div>
       </form>
+      </header>
     )
   }
 }

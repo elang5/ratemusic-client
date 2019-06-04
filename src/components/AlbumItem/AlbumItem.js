@@ -9,10 +9,11 @@ export class AlbumItem extends Component {
         <div className="cell">
           <div className="album">
             <Link to={`/albums/${album.id}`} className="album">
-              <h3>{album.title}</h3>
+              <img src={album.art} alt={album.title}/>
             </Link>
-            <img src={album.art} alt={album.title}/>
-            <p className="album-rating">{album.rating}</p>
+            <div className="rating-container">
+              <h3 className="album-rating">{album.rating}</h3>
+            </div>
           </div>
         </div>
     )

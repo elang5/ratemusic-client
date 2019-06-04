@@ -12,6 +12,17 @@ import { NavLink } from 'react-router-dom'
 export default function Header() {
   const [open, setOpen ] = useState(false)
 
+  const handleSetOpen = (e) => {
+    setOpen(true);
+    e.currentTarget.style.visibility = "hidden";
+  }
+
+  const handleSetClose = (e) => {
+    setOpen(false);
+    const openMenu = document.getElementById('open-container');
+    openMenu.style.visibility = "visible";
+  }
+
   return (
     <>
       <nav role="navigation" className="navbar" id="sidenav" style={open ? {marginLeft: "0"} : {marginLeft: "-22.4%"}}>
@@ -19,7 +30,7 @@ export default function Header() {
           <Menu 
             id="closebtn" 
             className="svg menu" 
-            onClick={() => setOpen(false)} />
+            onClick={(e) => handleSetClose(e)} />
             <h3 className="nav-text">CLOSE</h3>
         </div>
         <div className="nav-item logo">
@@ -47,14 +58,14 @@ export default function Header() {
           <h3 className="nav-text login">LOGIN</h3>
         </div>
         <div className="nav-item social">
-          <LinkedIn className="svg social" />
-          <Spotify className="svg social" />
+          <LinkedIn className="svg-social" />
+          <Spotify className="svg-social" />
         </div>
       </nav>
       <div 
         className="open"
-        onClick={() => {
-          setOpen(true)}}
+        id="open-container"
+        onClick={(e) => handleSetOpen(e)}
         >
         <Menu 
           id="openbtn" 
