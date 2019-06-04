@@ -5,13 +5,14 @@
   background-color: #000000;
   transition: 0.5s;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
 }
 
 .nav-item{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  height: 16.7%;
 
 }
 
@@ -60,8 +61,8 @@ div.nav-item.social {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  padding-top: 30px;
 }
+
 
 
 

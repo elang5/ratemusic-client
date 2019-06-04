@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './AlbumItem.css'
 
 export class AlbumItem extends Component {
   render() {
     const { album } = this.props
     return (
-        <div className="grid">
-          <div className="box">
+        <div className="cell">
+          <div className="album">
             <Link to={`/albums/${album.id}`} className="album">
               <h3>{album.title}</h3>
             </Link>

@@ -23,12 +23,14 @@ export class AlbumListPage extends Component {
 
   renderAlbums = () => {
     const { albums } = this.state
-    return albums.map(album => 
-      <AlbumItem
-        key={album.id}
-        album={album}
-        rating={this.getAverageRatings(album.id)}
-      />
+    return albums.map(album =>
+      <li className="album">
+        <AlbumItem
+          key={album.id}
+          album={album}
+          rating={this.getAverageRatings(album.id)}
+        />
+      </li> 
       )
   }
 
@@ -57,12 +59,15 @@ export class AlbumListPage extends Component {
   render() {
     const { error } = this.state
     return (
-      <section className="album-list-page">
-      <SearchForm name={'Search for Albums: '} getAlbums={this.searchAlbums} />
-        {error
-        ? <p className="error">There was an error. Please try again.</p>
-        : this.renderAlbums()}
-      </section>
+      <>
+        <SearchForm name={'Search for Albums: '} getAlbums={this.searchAlbums} />
+        <section className="album-list-page">
+          {error && <p className="error">There was an error. Please try again.</p>}
+          <ul className="album-list">
+            {this.renderAlbums()}
+          </ul>
+        </section>
+      </>
     )
   }
 }

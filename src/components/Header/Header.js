@@ -47,8 +47,8 @@ export default function Header() {
           <h3 className="nav-text login">LOGIN</h3>
         </div>
         <div className="nav-item social">
-          <LinkedIn className="svg-social" />
-          <Spotify className="svg-social" />
+          <LinkedIn className="svg social" />
+          <Spotify className="svg social" />
         </div>
       </nav>
       <div 
