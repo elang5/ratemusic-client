@@ -22,7 +22,7 @@ export class ReviewPage extends Component {
 
   handleGetAlbum() {
     AlbumApiService.getAlbum(this.props.match.params.albumId)
-      .then(res => this._isMounted && this.setState({ album: res }))
+      .then(res => this.setState({ album: res }))
       .catch(err => this.setState({ error: err.error }))
   }
 

@@ -22,7 +22,7 @@ export class ReviewForm extends Component {
     const { history } = this.props
     // can probably clean this up and remove state besides error handling
     AlbumApiService.postReview(albumId, title.value, content.value, rating.value)
-      .then(res => this.setState({ review: res, user: res.user }), history.push(`/albums/${albumId}`))
+      .then(res => this.setState({ review: res, user: res.user }, () => history.push(`/albums/${albumId}`)))
       .catch(err => this.setState({ error: err.error }))
   }
 
