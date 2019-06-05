@@ -12,6 +12,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-social": "^1.10.0",
+    "spotify-web-api-js": "^1.2.0",
     "uninstall": "0.0.0"
   },
   "scripts": {
