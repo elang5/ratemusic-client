@@ -38,7 +38,7 @@ export class RegistrationForm extends Component {
         <div className="error">
           {error && <p>{error}</p>}
         </div>
-        <p className="register">Register for Rate Music</p>
+        <p className="register-text">Register for Rate Music</p>
         <div className="full_name">
           <label className="label" htmlFor="full_name">Full name </label><br />
           <input 
