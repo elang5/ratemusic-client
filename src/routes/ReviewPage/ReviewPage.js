@@ -11,14 +11,14 @@ export class ReviewPage extends Component {
     }
   }
 
-  componentDidMount() {
-    const { albumId, reviewId } = this.props.match.params
-    AlbumApiService.getAlbumReview(albumId, reviewId)
-      .then(res => {
-        this.setState({ review: res[0] })
-      })
-      .catch(err => this.setState({ error: err.error }))
-  }
+  // componentDidMount() {
+  //   const { albumId, reviewId } = this.props.match.params
+  //   AlbumApiService.getAlbumReview(albumId, reviewId)
+  //     .then(res => {
+  //       this.setState({ review: res[0] })
+  //     })
+  //     .catch(err => this.setState({ error: err.error }))
+  // }
 
   handleGetAlbum() {
     AlbumApiService.getAlbum(this.props.match.params.albumId)

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import AlbumApiService from '../../services/albums-api-service'
 import AlbumItem from '../../components/AlbumItem/AlbumItem'
 import AlbumsApiService from '../../services/albums-api-service';
 import SearchForm from '../../components/SearchForm/SearchForm';
@@ -12,23 +11,19 @@ export class AlbumListPage extends Component {
   }
 
   componentDidMount() {
-    AlbumApiService.getAlbums()
-      .then(res => this.setState({
-        albums: [...res]
-      }))
-      .catch(res => this.setState({
-        error: res.error
-      }))
+    AlbumsApiService.getAlbums()
+      .then(albums => this.setState({ albums: albums }))
+      .catch(err => this.setState({ error: err }))
   }
 
   renderAlbums = () => {
     const { albums } = this.state
-    return albums.map(album =>
-      <li className="album" key={album.id}>
+    return albums.map((album, index) =>
+      <li className="album" key={index}>
         <AlbumItem
-          key={album.id}
-          album={album}
-          rating={this.getAverageRatings(album.id)}
+          key={index}
+          album={album.images[1].url}
+          // rating={this.getAverageRatings(album.album_id)}
         />
       </li> 
       )
@@ -44,17 +39,17 @@ export class AlbumListPage extends Component {
     })
   }
   
-  getAverageRatings = (albumId) => {
-    const { albums } = this.state
-    const averageRating = AlbumsApiService.getAlbumReviews(albumId)
-        .then(res => res.reduce((sum, review) => {
-          return (sum + review.rating)
-        }, 0) / res.length)
-        .then(value => parseFloat(value).toFixed(1))
-        .then(rating => albums[albumId - 1].rating = rating)
-        .catch(err => this.setState({ error: err.error }))
-    return averageRating
-  }
+  // getAverageRatings = (albumId) => {
+  //   const { albums } = this.state
+  //   const averageRating = AlbumsApiService.getAlbumReviews(albumId)
+  //       .then(res => res.reduce((sum, review) => {
+  //         return (sum + review.rating)
+  //       }, 0) / res.length)
+  //       .then(value => parseFloat(value).toFixed(1))
+  //       .then(rating => albums[albumId - 1].rating = rating)
+  //       .catch(err => this.setState({ error: err.error }))
+  //   return averageRating
+  // }
 
   render() {
     const { error } = this.state

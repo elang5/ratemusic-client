@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './SearchForm.css'
+import SpotifyAuth from '../../services/spotify-auth'
 import Spotify from 'spotify-web-api-js'
 
 const spotifyWebApi = new Spotify()
@@ -11,7 +12,7 @@ export default class AlbumSearchForm extends Component {
 
   constructor() {
     super()
-    const params = this.getHashParams()
+    const params = SpotifyAuth.getHashParams()
     this.state = {
       loggedIn: params.access_token ? true : false,
       album: '',
@@ -22,27 +23,19 @@ export default class AlbumSearchForm extends Component {
     }
   }
 
-  getHashParams() {
-    var hashParams = {};
-    var e, r = /([^&;=]+)=?([^&;]*)/g,
-        q = window.location.hash.substring(1);
-    while ( e = r.exec(q)) {
-       hashParams[e[1]] = decodeURIComponent(e[2]);
-    }
-    return hashParams;
-  }
-
   searchAlbums = album => {
     spotifyWebApi.searchAlbums(album)
       .then(res => {
         const albums = res.albums.items
           .map(alb => {
             return { 
+              album_id: alb.id,
               album_name: alb.name, 
               album_artist: alb.artists[0].name, 
               album_art: alb.images[1].url, 
               album_url: alb.external_urls.spotify }
           })
+          console.log(albums)
         this.setState({
           albums: albums
         })

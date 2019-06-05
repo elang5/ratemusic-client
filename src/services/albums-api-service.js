@@ -8,7 +8,6 @@ const AlbumsApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json())
-      
   },
   getAlbum(albumId) {
     return fetch(`${config.API_ENDPOINT}/albums/${albumId}`)
@@ -51,9 +50,6 @@ const AlbumsApiService = {
           : res.json()
         )
       },
-  getReviewUsers(){
-
-  },
   deleteReview(reviewId) {
     return fetch(`${config.API_ENDPOINT}/reviews/${reviewId}`, {
       method: 'DELETE',

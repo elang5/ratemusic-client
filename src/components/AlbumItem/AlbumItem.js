@@ -7,10 +7,10 @@ export class AlbumItem extends Component {
     const { album } = this.props
     return (
       <div className="cell">
-        <h3 className="album-rating">{album.rating}</h3>
+        {/* <h3 className="album-rating">{album.rating}</h3> */}
           <div className="container">
             <Link to={`/albums/${album.id}`} className="album">
-              <img src={album.art} alt={album.title}/>
+              <img src={album} alt={album}/>
             </Link>
           </div>
         </div>
