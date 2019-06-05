@@ -18,11 +18,13 @@ export class AlbumListPage extends Component {
 
   renderAlbums = () => {
     const { albums } = this.state
-    return albums.map((album, index) =>
+    return albums.map((album, index) => 
       <li className="album" key={index}>
         <AlbumItem
           key={index}
           album={album.images[1].url}
+          name={album.name}
+          album_id={album.id}
           // rating={this.getAverageRatings(album.album_id)}
         />
       </li> 

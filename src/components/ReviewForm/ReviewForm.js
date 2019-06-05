@@ -28,13 +28,14 @@ export class ReviewForm extends Component {
 
   render() {
     const { error, album } = this.state
+    console.log(album)
     return (
       <form 
         className="review-form"
         onSubmit={this.handleSubmit}>
           {error && <p>{error}</p>}
           <div className="album-info">
-            <h3>{`${album.artist}'s ${album.title}`}</h3>
+            <h3>{`${album.name}`}</h3>
           </div>
           <div className="title">
             <label htmlFor="title">Title</label>

@@ -35,7 +35,6 @@ export default class AlbumSearchForm extends Component {
               album_art: alb.images[1].url, 
               album_url: alb.external_urls.spotify }
           })
-          console.log(albums)
         this.setState({
           albums: albums
         })
