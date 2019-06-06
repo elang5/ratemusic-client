@@ -1,0 +1,67 @@
+.review-form-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(252, 61, 57, 0.73);
+}
+
+.review-form {
+  text-align: center;
+  width: 65%;
+  height: 73%;
+  border-radius: 5.5px;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  color: #1f1f21;
+}
+
+.album-name {
+  font-size: 24px;
+}
+
+.title > label {
+  font-size: 18px;
+  color: #1f1f21;
+}
+
+.title, .rating-select, .content {
+  margin: 1rem;
+}
+
+.review-form > div > label {
+  margin-right: .25rem;
+}
+
+#title, #rating, #content{
+  margin-top: 1em;
+  padding: 15px 20px;
+  border-radius: 2.2px;
+  border: solid 0.6px rgba(208, 208, 208, 0.5);
+  background-color: #e5e9ed;
+}
+
+#title, #rating {
+  width: 41.5%;
+  font-size: 16px;
+}
+
+#content {
+  width: 60%;
+  font-size: 12px;
+}
+
+
+.review-submit-btn {
+  width: 41.5%;
+  padding: 15px 20px;
+  border: none;
+  background-color: rgb(252, 60, 57);
+  margin: 1em 0;
+  border-radius: 2.2px;
+  font-size: 20px;
+  color: white;
+  font-weight: 200;
+  cursor: pointer;
+}

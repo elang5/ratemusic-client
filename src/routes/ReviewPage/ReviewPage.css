@@ -1,0 +1,30 @@
+.review-page {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.review-page > p {
+  font-size: 18px;
+}
+
+.title {
+  text-align: center;
+}
+
+.review-content {
+  padding: 0 2rem;
+}
+
+.album-art {
+  padding-top: 4rem;
+}
+
+@media only screen and (max-width: 575px) {
+  .album-art {
+    width: 60%
+  }
+  .review-page {
+
+  }
+}

@@ -6,81 +6,74 @@ import './AlbumListPage.css'
 
 export class AlbumListPage extends Component {
   state = {
-    error: null,
-    reviews: []
+    albums: [],
+    error: null
   }
 
   componentDidMount() {
     AlbumsApiService.getAlbums()
-      .then(albums => {
-        return albums.map(album => album.images[1].url)
-      })
-    AlbumsApiService.getReviews()
-      .then(reviews => this.setState({ reviews: reviews }))
-      .catch(err => this.setState({ error: err.error }))
+      .then(albums => this.setState({ albums: albums }))
+      .catch(err => this.setState({ error: err }))
   }
 
-  // renderAlbums = () => {
-  //   const { albums } = this.state
-  //   return albums.map((album, index) => 
-  //     <li className="album" key={index}>
-  //       <AlbumItem
-  //         key={index}
-  //         album={album.images[1].url}
-  //         name={album.name}
-  //         album_id={album.id}
-  //         // rating={this.getAverageRatings(album.album_id)}
-  //       />
-  //     </li> 
-  //     )
-  // }
-
-  renderReviews = () => {
-    const { reviews } = this.state
-    return reviews.map((review, index) => {
-      return <li className="review" key={index}>
+  renderAlbums = () => {
+    const { albums } = this.state
+    return albums.map((album, index) => 
+      <li className="album" key={index}>
         <AlbumItem
           key={index}
-          review={review.image}
-          name={review.title}
-          album_id={review.album_id}
+          album={album.images[1].url}
+          name={album.name}
+          album_id={album.id}
+          // rating={this.getAlbumRatings(album.id)}
         />
-      </li>
+      </li> 
+      )
+  }
+
+  searchAlbums = (album) => {
+    const { albums } = this.state
+    const matchedAlbums = albums.filter(albumName => {
+      return albumName.title.includes(album)
+    })
+    this.setState({
+      albums: matchedAlbums
     })
   }
 
-  // searchAlbums = (album) => {
-  //   const { albums } = this.state
-  //   const matchedAlbums = albums.filter(albumName => {
-  //     return albumName.title.includes(album)
-  //   })
-  //   this.setState({
-  //     albums: matchedAlbums
-  //   })
+  // getAlbumRatings = (albumId) => {
+  //   const averageRating = AlbumsApiService.getAlbumReviews(albumId)
+  //     .then(res => res.reduce((sum, review) => {
+  //       return (sum + review.rating)
+  //     }, 0) / res.length)
+  //     .then(value => parseFloat(value).toFixed(1))
+  //     .then(rating => console.log(rating))
+  //     .catch(err => this.setState({ error: err.error }))
+  //   return averageRating
   // }
   
   // getAverageRatings = (albumId) => {
-  //   const { albums } = this.state
+  //   // const { albums } = this.state
   //   const averageRating = AlbumsApiService.getAlbumReviews(albumId)
   //       .then(res => res.reduce((sum, review) => {
   //         return (sum + review.rating)
   //       }, 0) / res.length)
   //       .then(value => parseFloat(value).toFixed(1))
-  //       .then(rating => albums[albumId - 1].rating = rating)
+  //       .then(rating => console.log(rating))
   //       .catch(err => this.setState({ error: err.error }))
   //   return averageRating
   // }
 
   render() {
-    const { error } = this.state
+    const { error, albums } = this.state
     return (
       <>
-        <SearchForm name={'Search for Albums: '} />
+        <SearchForm name={'Search for Albums: '} getAlbums={this.searchAlbums} />
         <section className="album-list-page">
           {error && <p className="error">There was an error. Please try again.</p>}
           <div className="container">
             <ul className="album-list">
-              {this.renderReviews()}
+              {albums.length > 0 && this.renderAlbums()}
             </ul>
           </div>
         </section>

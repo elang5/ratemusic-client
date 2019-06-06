@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AlbumApiService from '../../services/albums-api-service'
+import './ReviewForm.css'
 
 export class ReviewForm extends Component {
   state = {
@@ -30,19 +31,20 @@ export class ReviewForm extends Component {
     const { error, album } = this.state
     console.log(album)
     return (
+      <div className="review-form-container">
       <form 
         className="review-form"
         onSubmit={this.handleSubmit}>
           {error && <p>{error}</p>}
           <div className="album-info">
-            <h3>{`${album.name}`}</h3>
+            <h2 className="album-name">{`${album.name}`}</h2>
           </div>
           <div className="title">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">Title: </label>
             <input type="text" id="title"/>
           </div>
           <div className="rating-select">
-            <label htmlFor="rating">Rate this album</label>
+            <label htmlFor="rating">Rating: </label>
             <select 
               name="rating" 
               id="rating"
@@ -61,11 +63,12 @@ export class ReviewForm extends Component {
             </select>
           </div>
           <div className="content">
-            <label htmlFor="content">Content</label>
+            <label htmlFor="content">Content: </label><br />
             <textarea name="content" id="content" cols="30" rows="20"></textarea>
           </div>
-          <button type="submit">Post review</button>
+          <button className="review-submit-btn" type="submit">Post review</button>
       </form>
+      </div>
     )
   }
 }
