@@ -1,3 +1,11 @@
-.container {
-  /* display: flex; */
+.spotify-login > a {
+  text-decoration: none;
+  color: #191414;
+  font-size: 14px;
+}
+
+.spotify-login {
+  border: none;
+  padding: 10px 12px;
+  background: #1DB954;
 }

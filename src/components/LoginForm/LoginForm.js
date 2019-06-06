@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
+import SpotifyOAuth from '../SpotifyOAuth/SpotifyOAuth'
 import './LoginForm.css'
 
 export class LoginForm extends Component {
@@ -37,7 +38,7 @@ export class LoginForm extends Component {
           className="login-form"
           onSubmit={this.handleSubmitJwtAuth}
         >
-          <p className="sign-in">SIGN IN TO RATE MUSIC</p>
+          <p className="sign-in">Sign In To Rate Music</p>
           <div className="error-alert">
             {error && <p>{error}</p>}
           </div>
@@ -55,9 +56,10 @@ export class LoginForm extends Component {
           </div>
           <div className="container">
             <button type="submit" className="submit-btn">
-              SIGN IN
+              Sign In
             </button>
           </div>
+          <SpotifyOAuth />
         </form>
     )
   }

@@ -7,12 +7,12 @@ export class AlbumItem extends Component {
     const { album, name, album_id, rating } = this.props
     return (
       <div className="cell">
-        <h3 className="album-rating">{rating}</h3>
         <h3 className="album-name">{name}</h3>
           <div className="container">
             <Link to={`/albums/${album_id}`} className="album">
               <img className="album-img" src={album} alt={album}/>
             </Link>
+          <h3 className="album-rating">{rating}</h3>
           </div>
         </div>
     )

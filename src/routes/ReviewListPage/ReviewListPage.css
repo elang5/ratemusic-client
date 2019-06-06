@@ -7,6 +7,7 @@
 .review-list {
   padding: 0;
   list-style-type: none;
+  width: 70%;
 }
 
 .post-review {
@@ -16,10 +17,15 @@
   margin: 2rem 0;
 }
 
-.review-btn {
+.review-btn, .listen-btn {
   border: none;
   padding: 12px 14px;
   font-size: 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.listen-btn {
+  background: #1DB954;
+  color: #191414;
 }

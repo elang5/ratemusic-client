@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Header.css'
+import './Nav.css'
 import Logo from '../../svg/Logo'
 import Register from '../../svg/Register'
 import Login from '../../svg/Login'
@@ -9,7 +9,7 @@ import LinkedIn from '../../svg/LinkedIn';
 import Spotify from '../../svg/Spotify';
 import { NavLink } from 'react-router-dom'
 
-export default function Header() {
+export default function Nav() {
   const [open, setOpen ] = useState(false)
 
   const handleSetOpen = (e) => {

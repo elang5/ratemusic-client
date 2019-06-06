@@ -22,15 +22,17 @@ export class AlbumListPage extends Component {
     //     albums.items.map(album => {
     //     return AlbumsApiService.getAlbumReviews(album.id)
     //       .then(reviews => {
+    //         console.log(reviews)
     //         const albumRating = reviews.map((review) => review.rating)
     //         const averageRating = albumRating.reduce((sum, rating) => {
     //           return sum + rating
     //         }, 0) / albumRating.length
     //         album.rating = averageRating
+    //         return reviews
     //       })
     //       .catch(err => console.log(err))
     //   }))
-    //   .then(reviews => this.setState({ albums: albums.items, reviews: reviews }))
+    //   .then(reviews => console.log(reviews) || this.setState({ albums: albums.items, reviews: reviews }))
     // })
     // .catch(err => this.setState({ error: err.error }))
 }
@@ -44,7 +46,7 @@ export class AlbumListPage extends Component {
           album={album.images[1].url}
           name={album.name}
           album_id={album.id}
-          rating={album.rating}
+          rating={album.rating ? album.rating : 'No reviews submitted'}
         />
       </li> 
       )

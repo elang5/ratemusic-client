@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
-import SpotifyOAuth from '../../components/SpotifyOAuth/SpotifyOAuth'
 import './Login.css'
 
 class LoginPage extends Component {
@@ -24,7 +23,6 @@ class LoginPage extends Component {
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />
-        <SpotifyOAuth />
       </div>
       </>
     )

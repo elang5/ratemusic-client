@@ -8,7 +8,7 @@ import ReviewListPage from './routes/ReviewListPage/ReviewListPage'
 import ReviewForm from './components/ReviewForm/ReviewForm'
 import ReviewPage from './routes/ReviewPage/ReviewPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
-import Header from './components/Header/Header'
+import Nav from './components/Nav/Nav'
 
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header />
+          <Nav />
         <main className='app-body'>
           {this.state.hasError && <p className="error">There was an error! Sorry!</p>}
           <Switch>

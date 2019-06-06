@@ -15,6 +15,8 @@ export class ReviewListPage extends Component {
 
     this.state = {
       reviews: [],
+      album_name: '',
+      album_url: '',
       error: null
     }
   }
@@ -24,10 +26,13 @@ export class ReviewListPage extends Component {
     AlbumApiService.getAlbumReviews(albumId)
       .then(res => this.setState({ reviews: [...res] }))
       .catch(err => this.setState({ error: err.error }))
+    AlbumApiService.getAlbum(albumId)
+      .then(album => this.setState({ album_name: album.name, album_url: album.external_urls.spotify }))
+      .catch(err => this.setState({ error: err }))
   }
 
   render() {
-    const { reviews, error } = this.state
+    const { reviews, error, album_name, album_url } = this.state
     const { albumId } = this.props.match.params
     return (
       <section className="album-reviews-page">
@@ -41,7 +46,9 @@ export class ReviewListPage extends Component {
           {reviews.map(review => <ReviewItem 
             key={review.id} review={review} />)}
         </ul>
-        
+        <a className="album-listen" href={album_url}>
+          <button className="listen-btn">{`Listen to ${album_name}`}</button>
+        </a>
       </section>
     )
   }
