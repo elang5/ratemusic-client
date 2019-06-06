@@ -7,14 +7,33 @@ import './AlbumListPage.css'
 export class AlbumListPage extends Component {
   state = {
     albums: [],
-    error: null
+    error: null,
+    reviews: []
   }
 
   componentDidMount() {
     AlbumsApiService.getAlbums()
-      .then(albums => this.setState({ albums: albums }))
-      .catch(err => this.setState({ error: err }))
-  }
+      .then(albums => this.setState({ albums }))
+    // let albums;
+    // AlbumsApiService.getAlbums()
+    // .then(res => {
+    //   albums = res
+    //   return Promise.all(
+    //     albums.items.map(album => {
+    //     return AlbumsApiService.getAlbumReviews(album.id)
+    //       .then(reviews => {
+    //         const albumRating = reviews.map((review) => review.rating)
+    //         const averageRating = albumRating.reduce((sum, rating) => {
+    //           return sum + rating
+    //         }, 0) / albumRating.length
+    //         album.rating = averageRating
+    //       })
+    //       .catch(err => console.log(err))
+    //   }))
+    //   .then(reviews => this.setState({ albums: albums.items, reviews: reviews }))
+    // })
+    // .catch(err => this.setState({ error: err.error }))
+}
 
   renderAlbums = () => {
     const { albums } = this.state
@@ -25,50 +44,52 @@ export class AlbumListPage extends Component {
           album={album.images[1].url}
           name={album.name}
           album_id={album.id}
-          // rating={this.getAlbumRatings(album.id)}
+          rating={album.rating}
         />
       </li> 
       )
   }
 
-  searchAlbums = (album) => {
-    const { albums } = this.state
-    const matchedAlbums = albums.filter(albumName => {
-      return albumName.title.includes(album)
-    })
-    this.setState({
-      albums: matchedAlbums
-    })
+  handleSearchSubmit = e => {
+    e.preventDefault()
+    let albums
+    const { album_search } = e.target
+    AlbumsApiService.searchAlbums(album_search.value)
+      .then(albums_ => {
+        albums = albums_
+        return Promise.all(
+          albums.items.map(album => {
+          return AlbumsApiService.getAlbumReviews(album.id)
+            .then(reviews => {
+              const albumRating = reviews.map((review) => review.rating)
+              const averageRating = albumRating.reduce((sum, rating) => {
+                return sum + rating
+              }, 0) / albumRating.length
+              album.rating = averageRating
+            })
+            .catch(err => console.log(err))
+        }))
+        .then(reviews => this.setState({ albums: albums.items, reviews: reviews }))
+      })
+      .catch(err => this.setState({ error: err.error }))
   }
-
-  // getAlbumRatings = (albumId) => {
-  //   const averageRating = AlbumsApiService.getAlbumReviews(albumId)
-  //     .then(res => res.reduce((sum, review) => {
-  //       return (sum + review.rating)
-  //     }, 0) / res.length)
-  //     .then(value => parseFloat(value).toFixed(1))
-  //     .then(rating => console.log(rating))
-  //     .catch(err => this.setState({ error: err.error }))
-  //   return averageRating
-  // }
   
-  // getAverageRatings = (albumId) => {
-  //   // const { albums } = this.state
-  //   const averageRating = AlbumsApiService.getAlbumReviews(albumId)
-  //       .then(res => res.reduce((sum, review) => {
-  //         return (sum + review.rating)
-  //       }, 0) / res.length)
-  //       .then(value => parseFloat(value).toFixed(1))
-  //       .then(rating => console.log(rating))
-  //       .catch(err => this.setState({ error: err.error }))
-  //   return averageRating
-  // }
+  getAverageRatings = (albumId) => {
+    const averageRating = AlbumsApiService.getAlbumReviews(albumId)
+        .then(res => res.reduce((sum, review) => {
+          return (sum + review.rating)
+        }, 0) / res.length)
+        .then(value => parseFloat(value).toFixed(1))
+        .then(rating => console.log(rating))
+        .catch(err => this.setState({ error: err.error }))
+    return averageRating
+  }
 
   render() {
     const { error, albums } = this.state
     return (
       <>
-        <SearchForm name={'Search for Albums: '} getAlbums={this.searchAlbums} />
+        <SearchForm name={'Search for Albums: '} searchAlbums={this.handleSearchSubmit} albums={albums}/>
         <section className="album-list-page">
           {error && <p className="error">There was an error. Please try again.</p>}
           <div className="container">

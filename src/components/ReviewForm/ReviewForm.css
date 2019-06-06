@@ -36,7 +36,7 @@
 
 #title, #rating, #content{
   margin-top: 1em;
-  padding: 15px 20px;
+  padding: 15px 18px;
   border-radius: 2.2px;
   border: solid 0.6px rgba(208, 208, 208, 0.5);
   background-color: #e5e9ed;
@@ -44,12 +44,13 @@
 
 #title, #rating {
   width: 41.5%;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #content {
-  width: 60%;
-  font-size: 12px;
+  max-width: 70%;
+  max-height: 100%;
+  font-size: 11px;
 }
 
 
@@ -58,7 +59,7 @@
   padding: 15px 20px;
   border: none;
   background-color: rgb(252, 60, 57);
-  margin: 1em 0;
+  margin: .5em 0;
   border-radius: 2.2px;
   font-size: 20px;
   color: white;

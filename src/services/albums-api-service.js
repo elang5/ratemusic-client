@@ -9,6 +9,13 @@ const AlbumsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json())
   },
+  searchAlbums(searchTerm) {
+    return fetch(`${config.API_ENDPOINT}/albums/search/${searchTerm}}`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json())
+  },
   getReviews() {
     return fetch(`${config.API_ENDPOINT}/reviews`)
       .then(res =>
@@ -37,7 +44,7 @@ const AlbumsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json())
   },
-  postReview(albumId, title, content, rating) {
+  postReview(albumId, title, content, rating, image) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: 'POST',
       headers: {
@@ -48,7 +55,8 @@ const AlbumsApiService = {
         album_id: albumId,
         title,
         rating,
-        content
+        content,
+        image
       }),
     })
       .then(res =>

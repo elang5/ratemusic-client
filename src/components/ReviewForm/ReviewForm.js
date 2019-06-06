@@ -19,17 +19,19 @@ export class ReviewForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const { albumId } = this.props.match.params
+    const albumImage = AlbumApiService.getAlbum(albumId)
+      .then(async res => await res.images[1].url)
+      .catch(err => this.setState({ error: err.error }))
     const { title, content, rating } = e.target
     const { history } = this.props
     // can probably clean this up and remove state besides error handling
-    AlbumApiService.postReview(albumId, title.value, content.value, rating.value)
+    AlbumApiService.postReview(albumId, title.value, content.value, rating.value, albumImage)
       .then(res => this.setState({ review: res, user: res.user }, () => history.push(`/albums/${albumId}`)))
       .catch(err => this.setState({ error: err.error }))
   }
 
   render() {
     const { error, album } = this.state
-    console.log(album)
     return (
       <div className="review-form-container">
       <form 

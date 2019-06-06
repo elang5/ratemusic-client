@@ -36,7 +36,7 @@ export class RegistrationForm extends Component {
         className="reg-form"
         onSubmit={this.handleSubmit}>
         <div className="error">
-          {error && <p>{error}</p>}
+          {error && <p className="error">{error}</p>}
         </div>
         <p className="register-text">Register for Rate Music</p>
         <div className="full_name">

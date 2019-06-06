@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import AlbumsApiService from '../../services/albums-api-service'
 import './ReviewPage.css'
 
@@ -34,7 +35,9 @@ export class ReviewPage extends Component {
     const { album_art, album_name, review } = this.state
     return (
       <div className="review-page">
-        <img src={album_art} alt={album_name} className="album-art" />
+        <Link to={`/albums/${this.props.match.params.albumId}`}>
+          <img src={album_art} alt={album_name} className="album-art" />
+        </Link>
         <h2 className="title">{`${review.title}`}</h2>
         <p>{`By: ${review.user_name}`}</p>
         <p>{`Rating: ${review.rating}`}</p>
