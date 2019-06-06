@@ -9,6 +9,13 @@ const AlbumsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json())
   },
+  getReviews() {
+    return fetch(`${config.API_ENDPOINT}/reviews`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json())
+  },
   getAlbum(albumId) {
     return fetch(`${config.API_ENDPOINT}/albums/${albumId}`)
       .then(res =>

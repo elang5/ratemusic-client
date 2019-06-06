@@ -38,8 +38,9 @@ export default class AlbumSearchForm extends Component {
         this.setState({
           albums: albums
         })
+        console.log(albums)
       })
-      .catch(err => console.error(err))
+      .catch(err => this.setState({ error: err }))
   }
 
   handleSearchSubmit = e => {
@@ -50,7 +51,7 @@ export default class AlbumSearchForm extends Component {
   }
   render() {
     return (
-      <header>
+      <header className="search-header">
       <form 
         className="search-form" 
         onSubmit={this.handleSearchSubmit}
