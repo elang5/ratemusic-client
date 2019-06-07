@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewListPage Component renders the ReviewListPage component 1`] = `
+<section
+  className="album-reviews-page"
+>
+  <div
+    className="buttons"
+  >
+    <Link
+      className="post-review"
+      to="/undefined/reviews"
+    >
+      <button
+        className="review-btn"
+      >
+        Post a Review!
+      </button>
+    </Link>
+    <a
+      className="album-listen"
+      href=""
+    >
+      <button
+        className="listen-btn"
+      >
+        Listen to 
+      </button>
+    </a>
+  </div>
+  <ul
+    className="review-list"
+  />
+</section>
+`;

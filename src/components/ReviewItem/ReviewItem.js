@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import AlbumStarRating from '../AlbumStarRating/AlbumStarRating'
 import './ReviewItem.css'
 
 export class ReviewItem extends Component {
@@ -10,7 +11,7 @@ export class ReviewItem extends Component {
         <Link to={`/albums/${review.album_id}/reviews/${review.id}`} className="review-link">
           <h3 className="review-title">{review.title}</h3>
         </Link>
-          <span className="review-rating">{`Rating: ${review.rating}`}</span>
+          <AlbumStarRating rating={review.rating} />
           <p className="user_info">{`By: ${review.user_name} on ${review.date_created}`}</p>
       </li>
     )

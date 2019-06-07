@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumItem Component renders the AlbumItem component 1`] = `
+<div
+  className="cell"
+>
+  <h3
+    className="album-name"
+  />
+  <div
+    className="container"
+  >
+    <Link
+      className="album"
+      to="/albums/undefined"
+    >
+      <img
+        className="album-img"
+      />
+    </Link>
+    <AlbumStarRating
+      className="review-stars"
+    />
+  </div>
+</div>
+`;
+
+exports[`AlbumItem Component renders the AlbumItem component given props 1`] = `
+<div
+  className="cell"
+>
+  <h3
+    className="album-name"
+  >
+    test
+  </h3>
+  <div
+    className="container"
+  >
+    <Link
+      className="album"
+      to="/albums/12345"
+    >
+      <img
+        alt="#"
+        className="album-img"
+        src="#"
+      />
+    </Link>
+    <AlbumStarRating
+      className="review-stars"
+      rating={8}
+    />
+  </div>
+</div>
+`;

@@ -1,30 +1,32 @@
 .review-page {
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  align-items: flex-start;
+  align-content: center;
+  padding-left: 2rem;
+  margin-top: 3rem;
+  max-width: 85%;
+  padding-bottom: 1rem;
+}
+
+.title {
+  margin: 1rem 0;
 }
 
 .review-page > p {
   font-size: 18px;
 }
 
-.title {
-  text-align: center;
+.album-art {
+  padding-top: 4rem;
 }
 
 .review-content {
-  padding: 0 2rem;
-}
-
-.album-art {
-  padding-top: 4rem;
+  margin-bottom: 2em;
 }
 
 @media only screen and (max-width: 575px) {
   .album-art {
     width: 60%
-  }
-  .review-page {
-
   }
 }

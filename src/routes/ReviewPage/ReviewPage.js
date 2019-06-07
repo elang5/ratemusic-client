@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AlbumsApiService from '../../services/albums-api-service'
+import AlbumStarRating from '../../components/AlbumStarRating/AlbumStarRating'
 import './ReviewPage.css'
 
 export class ReviewPage extends Component {
@@ -40,7 +41,7 @@ export class ReviewPage extends Component {
         </Link>
         <h2 className="title">{`${review.title}`}</h2>
         <p>{`By: ${review.user_name}`}</p>
-        <p>{`Rating: ${review.rating}`}</p>
+        <AlbumStarRating rating={review.rating} />
         <p className="review-content">{review.content}</p>
       </div>
     )

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav Component renders the Nav component 1`] = `
+<Fragment>
+  <nav
+    className="navbar"
+    id="sidenav"
+    role="navigation"
+    style={
+      Object {
+        "marginLeft": "-22.4%",
+      }
+    }
+  >
+    <div
+      className="nav-item close menu"
+    >
+      <menuSVG
+        className="svg menu"
+        id="closebtn"
+        onClick={[Function]}
+      />
+      <h3
+        className="nav-text"
+      >
+        CLOSE
+      </h3>
+    </div>
+    <div
+      className="nav-item logo"
+    >
+      <NavLink
+        className="link logo"
+        onClick={[Function]}
+        to="/albums"
+      >
+        <logoSVG
+          className="svg logo"
+        />
+      </NavLink>
+      <h3
+        className="nav-text logo"
+      >
+        RM
+      </h3>
+    </div>
+    <div
+      className="nav-item register"
+    >
+      <NavLink
+        className="link register"
+        onClick={[Function]}
+        to="/register"
+      >
+        <registerSVG
+          className="svg register"
+        />
+      </NavLink>
+      <h3
+        className="nav-text register"
+      >
+        REGISTER
+      </h3>
+    </div>
+    <div
+      className="nav-item albums"
+    >
+      <NavLink
+        className="link albums"
+        onClick={[Function]}
+        to="/albums"
+      >
+        <albumSVG
+          className="svg album"
+        />
+      </NavLink>
+      <h3
+        className="nav-text albums"
+      >
+        ALBUMS
+      </h3>
+    </div>
+    <div
+      className="nav-item login"
+    >
+      <NavLink
+        className="link login"
+        onClick={[Function]}
+        to="/login"
+      >
+        <loginSVG
+          className="svg login"
+        />
+      </NavLink>
+      <h3
+        className="nav-text login"
+      >
+        LOGIN
+      </h3>
+    </div>
+    <div
+      className="nav-item social"
+    >
+      <linkedInSVG
+        className="svg-social"
+      />
+      <spotifySVG
+        className="svg-social"
+      />
+    </div>
+  </nav>
+  <div
+    className="open"
+    id="open-container"
+    onClick={[Function]}
+  >
+    <menuSVG
+      className="svg menu closebtn"
+      id="openbtn"
+    />
+  </div>
+</Fragment>
+`;

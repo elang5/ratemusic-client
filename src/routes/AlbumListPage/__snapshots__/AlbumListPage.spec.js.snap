@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumListPage Component renders the AlbumListPage component 1`] = `
+<Fragment>
+  <SearchForm
+    albums={Array []}
+    handleSubmit={[Function]}
+    name="Search for Albums: "
+    searchAlbums={[Function]}
+  />
+  <section
+    className="album-list-page"
+  >
+    <div
+      className="container"
+    >
+      <ul
+        className="album-list"
+      />
+    </div>
+  </section>
+</Fragment>
+`;

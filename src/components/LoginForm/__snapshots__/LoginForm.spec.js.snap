@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm Component renders the LoginForm component 1`] = `
+<form
+  className="login-form"
+  onSubmit={[Function]}
+>
+  <p
+    className="sign-in"
+  >
+    Sign In To Rate Music
+  </p>
+  <div
+    className="error-alert"
+  />
+  <div
+    className="user_name_input"
+  >
+    <label
+      className="label"
+      htmlFor="user_name"
+    >
+      Username
+    </label>
+    <br />
+    <input
+      id="user_name"
+      name="user_name"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="password_input"
+  >
+    <label
+      className="label"
+      htmlFor="password"
+    >
+      Password
+    </label>
+    <br />
+    <input
+      id="password"
+      name="password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <div
+    className="container"
+  >
+    <button
+      className="submit-btn"
+      type="submit"
+    >
+      Sign In
+    </button>
+  </div>
+  <SpotifyOAuth />
+</form>
+`;

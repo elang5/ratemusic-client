@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm Component renders the SearchForm component 1`] = `
+<header
+  className="search-header"
+>
+  <form
+    className="search-form"
+    onSubmit={[Function]}
+  >
+    <h1
+      className="red"
+    >
+      Rate Music
+    </h1>
+    <div
+      className="input-fields"
+    >
+      <label
+        className="search-label"
+        htmlFor="album_search"
+      >
+        Test
+      </label>
+      <br />
+      <input
+        id="album_search"
+        name="album_search"
+        type="text"
+      />
+    </div>
+    <div
+      className="button-container"
+    >
+      <button
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</header>
+`;

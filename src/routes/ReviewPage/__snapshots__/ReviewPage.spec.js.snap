@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewPage Component renders the ReviewPage component 1`] = `
+<div
+  className="review-page"
+>
+  <Link
+    to="/albums/1"
+  >
+    <img
+      alt=""
+      className="album-art"
+      src=""
+    />
+  </Link>
+  <h2
+    className="title"
+  >
+    undefined
+  </h2>
+  <p>
+    By: undefined
+  </p>
+  <AlbumStarRating />
+  <p
+    className="review-content"
+  />
+</div>
+`;

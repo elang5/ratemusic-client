@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumStarRating Component renders the AlbumStarRating component 1`] = `
+<span
+  className="AlbumStarRating"
+>
+  <Star
+    filled={false}
+    key="0"
+  />
+  <Star
+    filled={false}
+    key="1"
+  />
+  <Star
+    filled={false}
+    key="2"
+  />
+  <Star
+    filled={false}
+    key="3"
+  />
+  <Star
+    filled={false}
+    key="4"
+  />
+  <Star
+    filled={false}
+    key="5"
+  />
+  <Star
+    filled={false}
+    key="6"
+  />
+  <Star
+    filled={false}
+    key="7"
+  />
+  <Star
+    filled={false}
+    key="8"
+  />
+  <Star
+    filled={false}
+    key="9"
+  />
+</span>
+`;

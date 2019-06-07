@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewItem Component renders the ReviewItem component 1`] = `
+<li
+  className="review"
+>
+  <Link
+    className="review-link"
+    to="/albums/1/reviews/undefined"
+  >
+    <h3
+      className="review-title"
+    >
+      Test
+    </h3>
+  </Link>
+  <AlbumStarRating
+    rating={8}
+  />
+  <p
+    className="user_info"
+  >
+    By: tester on 222
+  </p>
+</li>
+`;
