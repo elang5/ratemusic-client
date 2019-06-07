@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AlbumItem from '../../components/AlbumItem/AlbumItem'
-import AlbumsApiService from '../../services/albums-api-service';
-import SearchForm from '../../components/SearchForm/SearchForm';
+import AlbumsApiService from '../../services/albums-api-service'
+import SearchForm from '../../components/SearchForm/SearchForm'
 import './AlbumListPage.css'
 
 export class AlbumListPage extends Component {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import AlbumStarRating from '../../components/AlbumStarRating/AlbumStarRating'
+
 import './AlbumItem.css'
 
 export class AlbumItem extends Component {
@@ -12,7 +14,7 @@ export class AlbumItem extends Component {
             <Link to={`/albums/${album_id}`} className="album">
               <img className="album-img" src={album} alt={album}/>
             </Link>
-            <h3 className="album-rating">{rating}</h3>
+            <AlbumStarRating className="review-stars" rating={rating} />
           </div>
         </div>
     )
