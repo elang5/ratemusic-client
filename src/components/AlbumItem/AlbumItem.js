@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AlbumStarRating from '../../components/AlbumStarRating/AlbumStarRating'
-
 import './AlbumItem.css'
 
 export class AlbumItem extends Component {
