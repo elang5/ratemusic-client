@@ -12,29 +12,28 @@ export class AlbumListPage extends Component {
   }
 
   componentDidMount() {
-    AlbumsApiService.getAlbums()
-      .then(albums => this.setState({ albums }))
-    // let albums;
     // AlbumsApiService.getAlbums()
-    // .then(res => {
-    //   albums = res
-    //   return Promise.all(
-    //     albums.items.map(album => {
-    //     return AlbumsApiService.getAlbumReviews(album.id)
-    //       .then(reviews => {
-    //         console.log(reviews)
-    //         const albumRating = reviews.map((review) => review.rating)
-    //         const averageRating = albumRating.reduce((sum, rating) => {
-    //           return sum + rating
-    //         }, 0) / albumRating.length
-    //         album.rating = averageRating
-    //         return reviews
-    //       })
-    //       .catch(err => console.log(err))
-    //   }))
-    //   .then(reviews => console.log(reviews) || this.setState({ albums: albums.items, reviews: reviews }))
-    // })
-    // .catch(err => this.setState({ error: err.error }))
+    //   .then(albums => this.setState({ albums }))
+    let albums;
+    AlbumsApiService.getAlbums()
+    .then(res => {
+      albums = res
+      return Promise.all(
+        albums && albums.map(album => {
+        return AlbumsApiService.getAlbumReviews(album.id)
+          .then(reviews => {
+            const albumRating = reviews.map((review) => review.rating)
+            const averageRating = albumRating.reduce((sum, rating) => {
+              return sum + rating
+            }, 0) / albumRating.length
+            album.rating = averageRating.toFixed(0)
+            return reviews
+          })
+          .catch(err => console.log(err))
+      }))
+      .then(reviews => this.setState({ albums: albums, reviews: reviews }))
+    })
+    .catch(err => this.setState({ error: err.error }))
 }
 
   renderAlbums = () => {
@@ -68,6 +67,7 @@ export class AlbumListPage extends Component {
                 return sum + rating
               }, 0) / albumRating.length
               album.rating = averageRating
+              console.log(averageRating)
             })
             .catch(err => console.log(err))
         }))
@@ -96,7 +96,7 @@ export class AlbumListPage extends Component {
           {error && <p className="error">There was an error. Please try again.</p>}
           <div className="container">
             <ul className="album-list">
-              {albums.length > 0 && this.renderAlbums()}
+              {this.renderAlbums()}
             </ul>
           </div>
         </section>

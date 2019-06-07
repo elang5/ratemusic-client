@@ -12,7 +12,7 @@ export class AlbumItem extends Component {
             <Link to={`/albums/${album_id}`} className="album">
               <img className="album-img" src={album} alt={album}/>
             </Link>
-          <h3 className="album-rating">{rating}</h3>
+            <h3 className="album-rating">{rating}</h3>
           </div>
         </div>
     )
