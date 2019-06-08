@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
-import SpotifyOAuth from '../SpotifyOAuth/SpotifyOAuth'
 import './LoginForm.css'
 
 export class LoginForm extends Component {
@@ -59,7 +58,6 @@ export class LoginForm extends Component {
               Sign In
             </button>
           </div>
-          <SpotifyOAuth />
         </form>
     )
   }

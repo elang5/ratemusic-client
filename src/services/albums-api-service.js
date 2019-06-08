@@ -32,7 +32,7 @@ const AlbumsApiService = {
   },
   getAlbumReviews(albumId) {
     return fetch(`${config.API_ENDPOINT}/albums/${albumId}/reviews`)
-      .then(res =>
+      .then(res => 
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json())

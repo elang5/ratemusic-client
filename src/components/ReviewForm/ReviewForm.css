@@ -10,7 +10,7 @@
 .review-form {
   text-align: center;
   width: 65%;
-  height: 73%;
+  height: 83%;
   border-radius: 5.5px;
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
@@ -52,7 +52,6 @@
   max-height: 100%;
   font-size: 11px;
 }
-
 
 .review-submit-btn {
   width: 41.5%;
