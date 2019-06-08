@@ -7,8 +7,8 @@ import './AlbumListPage.css'
 export class AlbumListPage extends Component {
   state = {
     albums: [],
-    error: null,
-    reviews: []
+    searchResults: [],
+    error: null
   }
 
   componentDidMount() {
@@ -31,13 +31,12 @@ export class AlbumListPage extends Component {
           })
           .catch(err => console.log(err))
       }))
-      .then(reviews => this.setState({ albums: albums, reviews: reviews }))
+      .then(reviews => this.setState({ albums: albums }))
     })
     .catch(err => this.setState({ error: err.error }))
 }
 
-  renderAlbums = () => {
-    const { albums } = this.state
+  renderAlbums = (albums) => {
     return albums.map((album, index) => 
       <li className="album" key={index}>
         <AlbumItem
@@ -62,41 +61,33 @@ export class AlbumListPage extends Component {
           albums.items.map(album => {
           return AlbumsApiService.getAlbumReviews(album.id)
             .then(reviews => {
-              const albumRating = reviews.map((review) => review.rating)
-              const averageRating = albumRating.reduce((sum, rating) => {
-                return sum + rating
-              }, 0) / albumRating.length
-              album.rating = averageRating
-              console.log(averageRating)
+                const albumRating = reviews.map((review) => review.rating)
+                const averageRating = albumRating.reduce((sum, rating) => {
+                  return sum + rating
+                }, 0) / albumRating.length
+                return album.rating = averageRating
             })
             .catch(err => console.log(err))
         }))
-        .then(reviews => this.setState({ albums: albums.items, reviews: reviews }))
+        .then(albumRatings => this.setState({ searchResults: albums.items }))
       })
       .catch(err => this.setState({ error: err.error }))
   }
-  
-  getAverageRatings = (albumId) => {
-    const averageRating = AlbumsApiService.getAlbumReviews(albumId)
-        .then(res => res.reduce((sum, review) => {
-          return (sum + review.rating)
-        }, 0) / res.length)
-        .then(value => parseFloat(value).toFixed(1))
-        .then(rating => console.log(rating))
-        .catch(err => this.setState({ error: err.error }))
-    return averageRating
-  }
 
   render() {
-    const { error, albums } = this.state
+    const { error, albums, searchResults } = this.state
+    console.log(searchResults)
     return (
       <>
-        <SearchForm name={'Search for Albums: '} searchAlbums={this.handleSearchSubmit} albums={albums}/>
+        <SearchForm 
+          name={'Search for Albums: '} 
+          searchAlbums={this.handleSearchSubmit} 
+          albums={albums}/>
         <section className="album-list-page">
           {error && <p className="error">There was an error. Please try again.</p>}
           <div className="container">
             <ul className="album-list">
-              {this.renderAlbums()}
+              {searchResults.length > 1 ? this.renderAlbums(searchResults) : this.renderAlbums(albums)}
             </ul>
           </div>
         </section>

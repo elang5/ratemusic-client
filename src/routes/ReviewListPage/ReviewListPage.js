@@ -46,7 +46,7 @@ export class ReviewListPage extends Component {
             <button className="listen-btn">{`Listen to ${album_name}`}</button>
         </a>
         </div>
-        {error && <p className="error">{error}</p>}
+        {error && <p className="no-reviews-error">{error}</p>}
         <ul className="review-list">
           {reviews && reviews.map(review => <ReviewItem 
             key={review.id} review={review} />)}

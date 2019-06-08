@@ -41,3 +41,8 @@
   background: #1DB954;
   color: #191414;
 }
+
+.no-reviews-error {
+  color: white;
+  font-size: 20px;
+}

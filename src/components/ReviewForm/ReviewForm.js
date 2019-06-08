@@ -37,7 +37,7 @@ export class ReviewForm extends Component {
         onSubmit={this.handleSubmit}>
           {error && <p>{error}</p>}
           <div className="album-info">
-            <h2 className="album-name">{`${album.name}`}</h2>
+            <h2 className="album-title">{`${album.name}`}</h2>
           </div>
           <div className="title">
             <label htmlFor="title">Title: </label>

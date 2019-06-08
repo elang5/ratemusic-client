@@ -1,11 +1,9 @@
-@media only screen and (max-width: 720px) {
-  .album-img {
-    width: 100%;
-  }
-}
-
 @media only screen and (max-width: 400px) {
   .album-img {
     width: 80%;
   }
+}
+
+.album-name {
+  font-size: 20px;
 }
