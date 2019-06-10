@@ -25,38 +25,52 @@ export default function Nav() {
 
   return (
     <>
-      <nav role="navigation" className="navbar" id="sidenav" style={open ? {marginLeft: "0"} : {marginLeft: "-30.4%"}}>
-        <div className="nav-item close menu">
+      <nav 
+        role="navigation" 
+        className="navbar" 
+        id="sidenav" 
+        style={open ? {marginLeft: "0"} : {marginLeft: "-30.4%"}}>
+        <div 
+          className="nav-item close menu" 
+          onClick={(e) => handleSetClose(e)} >
           <Menu 
             id="closebtn" 
             className="svg menu" 
-            onClick={(e) => handleSetClose(e)} />
+            />
             <h3 className="nav-text">CLOSE</h3>
         </div>
-        <div className="nav-item logo" onClick={(e) => handleSetClose(e)}>
-          <NavLink className="link logo" to={"/albums"}>
-            <Logo className="svg logo"/>
-          </NavLink>
-          <h3 className="nav-text logo">RM</h3>
-        </div>
-        <div className="nav-item register" onClick={(e) => handleSetClose(e)}>
-          <NavLink className="link register" to={"/register"} >
-            <Register className="svg register" />
-          </NavLink>
+        <NavLink 
+          className="nav-item link logo" 
+          to={"/albums"} 
+          onClick={(e) => handleSetClose(e)}
+        >
+          <Logo className="svg logo"/>
+          <h3 className="nav-text logo">RM</h3> 
+        </NavLink>
+        <NavLink 
+          className="nav-item link register" 
+          to={"/register"} 
+          onClick={(e) => handleSetClose(e)}
+        >
+          <Register className="svg register" />
           <h3 className="nav-text register">REGISTER</h3>
-        </div>
-        <div className="nav-item albums" onClick={(e) => handleSetClose(e)}>
-          <NavLink className="link albums" to={"/albums"}>
-            <Album className="svg album" />
-          </NavLink>
+        </NavLink>
+        <NavLink 
+          className="nav-item link albums" 
+          to={"/albums"}
+          onClick={(e) => handleSetClose(e)}
+        >
+          <Album className="svg album" />
           <h3 className="nav-text albums">ALBUMS</h3>
-        </div>
-        <div className="nav-item login" onClick={(e) => handleSetClose(e)}>
-          <NavLink className="link login" to={"/login"}>
-            <Login className="svg login" />
-          </NavLink>
+        </NavLink>
+        <NavLink 
+          className="nav-item link login" 
+          to={"/login"}
+          onClick={(e) => handleSetClose(e)}
+        >
+          <Login className="svg login" />
           <h3 className="nav-text login">LOGIN</h3>
-        </div>
+        </NavLink>
         <div className="nav-item social">
           <a href="https://www.linkedin.com/in/elang589/">
             <LinkedIn className="svg-social linkedin" />

@@ -92,7 +92,14 @@ div.open {
 }
 
 .svg-social {
-  width: 50px;
+  width: 42px;
   height: auto;
 }
 
+.svg-social.linkedin path {
+  fill: #0077B5;
+}
+
+.svg-social.spotify path {
+  fill: #1DB954;
+}

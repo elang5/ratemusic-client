@@ -25,7 +25,7 @@ export class ReviewForm extends Component {
     // can probably clean this up and remove state besides error handling
     AlbumApiService.postReview(albumId, title.value, content.value, rating.value, albumImage)
       .then(() => history.push(`/albums/${albumId}`))
-      .catch(err => this.setState({ error: err.error }))
+      .catch(err => this.setState({ error: err.error }, history.push('/login')))
   }
 
   render() {
@@ -64,7 +64,7 @@ export class ReviewForm extends Component {
           </div>
           <div className="content">
             <label htmlFor="content">Content: </label><br />
-            <textarea name="content" id="content" cols="60" rows="15"></textarea>
+            <textarea name="content" id="content" cols="60" rows="25"></textarea>
           </div>
           <button className="review-submit-btn" type="submit">Post review</button>
       </form>

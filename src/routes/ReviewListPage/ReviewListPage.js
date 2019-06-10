@@ -1,9 +1,9 @@
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import AlbumApiService from '../../services/albums-api-service'
 import ReviewItem from '../../components/ReviewItem/ReviewItem'
-import { Link } from 'react-router-dom'
 import './ReviewListPage.css'
 
-import React, { Component } from 'react'
 
 export class ReviewListPage extends Component {
   static defaultProps = {
@@ -42,7 +42,11 @@ export class ReviewListPage extends Component {
               Post a Review!
             </button>
           </Link>
-          <a className="album-listen" href={album_url}>
+          <a 
+            className="album-listen" 
+            href={album_url}
+            target="_blank"
+            rel="noopener noreferrer">
             <button className="listen-btn">{`Listen to ${album_name}`}</button>
         </a>
         </div>

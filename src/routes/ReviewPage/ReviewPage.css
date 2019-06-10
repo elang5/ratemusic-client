@@ -1,12 +1,13 @@
 .review-page {
   display: flex;
   flex-flow: column wrap;
-  align-items: flex-start;
-  align-content: center;
-  padding-left: 2rem;
-  margin-top: 3rem;
-  max-width: 85%;
+  align-items: center;
+  padding: 2rem;
+  margin: 4.5rem auto;
+  max-width: 65%;
   padding-bottom: 1rem;
+  border: 5px solid rgb(252, 60, 57);
+  border-radius: 10px;
 }
 
 .title {
@@ -18,7 +19,11 @@
 }
 
 .album-art {
-  padding-top: 4rem;
+  padding-top: 2rem;
+}
+
+.album-art-link {
+  text-align: center;
 }
 
 .review-content {

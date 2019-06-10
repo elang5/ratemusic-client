@@ -48,7 +48,7 @@ export class RegistrationForm extends Component {
             id="full_name"/>
         </div>
         <div className="user_name">
-          <label className="label" htmlFor="user_name">User name</label><br />
+          <label className="label" htmlFor="user_name">Username</label><br />
           <input 
             required
             type="text"
@@ -57,7 +57,8 @@ export class RegistrationForm extends Component {
           />
         </div>
         <div className="password">
-          <label className="label" htmlFor="password">Password</label><br />
+          <label className="label" htmlFor="password">Password</label>
+          <p className="password-rules">Please create an 8+ character password with a number, uppercase letter, and special character.</p>
           <input 
             required
             type="password"

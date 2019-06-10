@@ -13,6 +13,7 @@ export class ReviewPage extends Component {
       review: [],
       album_art: '',
       album_name: '',
+      album_url: '',
       loading: true
     }
   }
@@ -27,19 +28,28 @@ export class ReviewPage extends Component {
 
     AlbumsApiService.getAlbum(this.props.match.params.albumId)
       .then(res => {
+        console.log(res)
         this.setState({ 
           album_art: res.images[1].url,
           album_name: res.name,
+          album_url: res.external_urls.spotify,
           loading: false })
       })
       .catch(err => this.setState({ error: err.error }))
   }
 
   render() {
-    const { album_art, album_name, review, loading } = this.state
+    const { album_art, album_name, review, loading, album_url } = this.state
     return (
       <div className="review-page">
-        <Link to={`/albums/${this.props.match.params.albumId}`}>
+        <a 
+            className="album-listen" 
+            href={album_url}
+            target="_blank"
+            rel="noopener noreferrer">
+            <button className="listen-btn">{`Listen to ${album_name}`}</button>
+        </a>
+        <Link className="album-art-link"to={`/albums/${this.props.match.params.albumId}`}>
           {loading && <ClipLoader loading={loading} />}
           <img src={album_art} alt={album_name} className="album-art" />
         </Link>

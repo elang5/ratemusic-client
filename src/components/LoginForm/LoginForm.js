@@ -39,22 +39,38 @@ export class LoginForm extends Component {
         >
           <p className="sign-in">Sign In To Rate Music</p>
           <div className="error-alert">
-            {error && <p>{error}</p>}
+            {error && <p className="error">{error}</p>}
           </div>
           <div className="user_name_input">
-            <label className="label" htmlFor="user_name">
+            <label 
+              className="label" 
+              htmlFor="user_name">
               Username
             </label><br />
-            <input required type="text" name="user_name" id="user_name"/>
+            <input 
+              required 
+              placeholder="testing"
+              type="text" 
+              name="user_name" 
+              id="user_name"/>
           </div>
           <div className="password_input">
-            <label className="label" htmlFor="password">
+            <label 
+              className="label" 
+              htmlFor="password">
               Password
             </label><br />
-            <input required type="password" name="password" id="password"/>
+            <input 
+              required 
+              placeholder="!Testing1"
+              type="password" 
+              name="password" 
+              id="password"/>
           </div>
           <div className="container">
-            <button type="submit" className="submit-btn">
+            <button 
+              type="submit" 
+              className="submit-btn">
               Sign In
             </button>
           </div>

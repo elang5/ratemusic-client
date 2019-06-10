@@ -7,6 +7,7 @@ import AlbumListPage from './routes/AlbumListPage/AlbumListPage'
 import ReviewListPage from './routes/ReviewListPage/ReviewListPage'
 import ReviewForm from './components/ReviewForm/ReviewForm'
 import ReviewPage from './routes/ReviewPage/ReviewPage'
+import LandingPage from './routes/LandingPage/LandingPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import Nav from './components/Nav/Nav'
 
@@ -29,7 +30,7 @@ class App extends Component {
           <Switch>
             <Route
               exact path={"/"}
-              component={AlbumListPage}
+              component={LandingPage}
             />
             <Route 
               path={"/register"}

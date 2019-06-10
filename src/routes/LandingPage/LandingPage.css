@@ -1,0 +1,23 @@
+.landing-page-container {
+  margin: 2em;
+}
+
+.landing-page-container > p {
+  max-width: 75%;
+  font-size: 1rem;
+}
+
+.homepage-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.homepage-btn {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(252, 61, 57, 0.73);
+  margin-top: 1em;
+}
+

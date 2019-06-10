@@ -30,7 +30,7 @@ export default class SearchForm extends Component {
       <form 
         className="search-form" 
         onSubmit={(e) => this.props.searchAlbums(e)}
-      >
+      > 
         <h1 className="red">Rate Music</h1>
         <div className="input-fields">
           <label htmlFor="album_search" className="search-label">
