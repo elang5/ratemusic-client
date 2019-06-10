@@ -42,7 +42,7 @@ export class AlbumListPage extends Component {
         <AlbumItem
           key={index}
           album={album.images[1].url}
-          name={album.name}
+          name={album.name.substring(0, 30)}
           album_id={album.id}
           rating={album.rating ? album.rating : 'No reviews submitted'}
         />
