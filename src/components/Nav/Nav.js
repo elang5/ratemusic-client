@@ -25,7 +25,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav role="navigation" className="navbar" id="sidenav" style={open ? {marginLeft: "0"} : {marginLeft: "-22.4%"}}>
+      <nav role="navigation" className="navbar" id="sidenav" style={open ? {marginLeft: "0"} : {marginLeft: "-30.4%"}}>
         <div className="nav-item close menu">
           <Menu 
             id="closebtn" 
@@ -33,33 +33,37 @@ export default function Nav() {
             onClick={(e) => handleSetClose(e)} />
             <h3 className="nav-text">CLOSE</h3>
         </div>
-        <div className="nav-item logo">
-          <NavLink className="link logo" to={"/albums"} onClick={(e) => handleSetClose(e)}>
+        <div className="nav-item logo" onClick={(e) => handleSetClose(e)}>
+          <NavLink className="link logo" to={"/albums"}>
             <Logo className="svg logo"/>
           </NavLink>
           <h3 className="nav-text logo">RM</h3>
         </div>
-        <div className="nav-item register">
-          <NavLink className="link register" to={"/register"} onClick={(e) => handleSetClose(e)}>
+        <div className="nav-item register" onClick={(e) => handleSetClose(e)}>
+          <NavLink className="link register" to={"/register"} >
             <Register className="svg register" />
           </NavLink>
           <h3 className="nav-text register">REGISTER</h3>
         </div>
-        <div className="nav-item albums">
-          <NavLink className="link albums" to={"/albums"} onClick={(e) => handleSetClose(e)}>
+        <div className="nav-item albums" onClick={(e) => handleSetClose(e)}>
+          <NavLink className="link albums" to={"/albums"}>
             <Album className="svg album" />
           </NavLink>
           <h3 className="nav-text albums">ALBUMS</h3>
         </div>
-        <div className="nav-item login">
-          <NavLink className="link login" to={"/login"} onClick={(e) => handleSetClose(e)}>
+        <div className="nav-item login" onClick={(e) => handleSetClose(e)}>
+          <NavLink className="link login" to={"/login"}>
             <Login className="svg login" />
           </NavLink>
           <h3 className="nav-text login">LOGIN</h3>
         </div>
         <div className="nav-item social">
-          <LinkedIn className="svg-social" />
-          <Spotify className="svg-social" />
+          <a href="https://www.linkedin.com/in/elang589/">
+            <LinkedIn className="svg-social linkedin" />
+          </a>
+          <a href='https://open.spotify.com/user/elang5'>
+            <Spotify className="svg-social spotify" />
+          </a>
         </div>
       </nav>
       <div 
