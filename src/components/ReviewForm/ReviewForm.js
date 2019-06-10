@@ -64,9 +64,9 @@ export class ReviewForm extends Component {
           </div>
           <div className="content">
             <label htmlFor="content">Content: </label><br />
-            <textarea name="content" id="content" cols="60" rows="25"></textarea>
+            <textarea name="content" id="content" cols="70" rows="17"></textarea>
           </div>
-          <button className="review-submit-btn" type="submit">Post review</button>
+          <button className="review-submit-btn" type="submit">Post</button>
       </form>
       </div>
     )
