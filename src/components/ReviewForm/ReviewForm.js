@@ -6,12 +6,27 @@ export class ReviewForm extends Component {
   state = {
     error: null,
     album: [],
+    title: '',
+    rating: 1,
+    content: ''
   }
 
   componentDidMount() {
     AlbumApiService.getAlbum(this.props.match.params.albumId)
       .then(res => this.setState({ album: res }))
       .catch(err => this.setState({ error: err.error }))
+  }
+
+  handleTitleChange = e => {
+    this.setState({ title: e.target.value })
+  }
+
+  handleRatingChange = e => {
+    this.setState({ rating: e.target.value })
+  }
+
+  handleContentChange = e => {
+    this.setState({ content: e.target.value })
   }
 
   handleSubmit = e => {
@@ -22,14 +37,13 @@ export class ReviewForm extends Component {
       .catch(err => this.setState({ error: err.error }))
     const { title, content, rating } = e.target
     const { history } = this.props
-    // can probably clean this up and remove state besides error handling
     AlbumApiService.postReview(albumId, title.value, content.value, rating.value, albumImage)
       .then(() => history.push(`/albums/${albumId}`))
       .catch(err => this.setState({ error: err.error }, history.push('/login')))
   }
 
   render() {
-    const { error, album } = this.state
+    const { error, album, title, rating, content } = this.state
     return (
       <div className="review-form-container">
       <form 
@@ -41,7 +55,11 @@ export class ReviewForm extends Component {
           </div>
           <div className="title">
             <label htmlFor="title">Title: </label>
-            <input type="text" id="title"/>
+            <input 
+              type="text" 
+              id="title"
+              value={title}
+              onChange={this.handleTitleChange}/>
           </div>
           <div className="rating-select">
             <label htmlFor="rating">Rating: </label>
@@ -49,6 +67,8 @@ export class ReviewForm extends Component {
               name="rating" 
               id="rating"
               aria-label='Rate this album'
+              value={rating}
+              onChange={this.handleRatingChange}
             >
               <option value="1">1</option>
               <option value="2">2</option>
@@ -64,7 +84,15 @@ export class ReviewForm extends Component {
           </div>
           <div className="content">
             <label htmlFor="content">Content: </label><br />
-            <textarea name="content" id="content" cols="70" rows="17"></textarea>
+            <textarea 
+              name="content" 
+              id="content" 
+              cols="70" 
+              rows="17"
+              value={content}
+              onChange={this.handleContentChange}
+            >
+            </textarea>
           </div>
           <button className="review-submit-btn" type="submit">Post</button>
       </form>

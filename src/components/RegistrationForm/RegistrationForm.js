@@ -7,11 +7,28 @@ export class RegistrationForm extends Component {
     onRegistrationSuccess: () => {}
   }
 
-  state = { error: null }
+  state = { 
+    error: null,
+    full_name: '',
+    user_name: ''
+  }
+
+  handleNameChange = e => {
+    this.setState({
+      full_name: e.target.value
+    })
+  }
+
+  handleUsernameChange = e => {
+    this.setState({
+      user_name: e.target.value
+    })
+  }
 
   handleSubmit = e => {
     e.preventDefault()
-    const { full_name, user_name, password } = e.target
+    const { password } = e.target
+    const { user_name, full_name } = this.state
 
     AuthApiService.postUser({
       user_name: user_name.value,
@@ -30,7 +47,7 @@ export class RegistrationForm extends Component {
   }
   
   render() {
-    const { error } = this.state
+    const { error, user_name, full_name } = this.state
     return (
       <form 
         className="reg-form"
@@ -45,7 +62,9 @@ export class RegistrationForm extends Component {
             required
             type="text" 
             name="full_name"
-            id="full_name"/>
+            id="full_name"
+            value={full_name}
+            onChange={this.handleNameChange}/>
         </div>
         <div className="user_name">
           <label className="label" htmlFor="user_name">Username</label><br />
@@ -54,6 +73,8 @@ export class RegistrationForm extends Component {
             type="text"
             name="user_name"
             id="user_name"
+            value={user_name}
+            onChange={this.handleUsernameChange}
           />
         </div>
         <div className="password">

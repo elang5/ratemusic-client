@@ -9,20 +9,27 @@ export class LoginForm extends Component {
   }
 
   state = {
-    error: null
+    error: null,
+    user_name: ''
+  }
+
+  handleUsernameChange = (e) => {
+    this.setState({
+      user_name: e.target.value
+    })
   }
 
   handleSubmitJwtAuth = e => {
     e.preventDefault()
-    const { user_name, password } = e.target
+    const { user_name } = this.state
+    const { password } = e.target
 
     AuthApiService.postLogin({
-      user_name: user_name.value,
+      user_name: user_name,
       password: password.value,
     })
       .then(res => {
-        user_name.value = ''
-        password.value = ''
+        this.setState({ user_name: '', password: '' })
         TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess()
       })
@@ -45,7 +52,7 @@ export class LoginForm extends Component {
       })
   }
   render() {
-    const { error } = this.state
+    const { error, user_name } = this.state
     return (
         <form 
           className="login-form"
@@ -66,7 +73,9 @@ export class LoginForm extends Component {
               placeholder="testing"
               type="text" 
               name="user_name" 
-              id="user_name"/>
+              id="user_name"
+              value={user_name}
+              onChange={this.handleUsernameChange}/>
           </div>
           <div className="password_input">
             <label 
@@ -79,7 +88,8 @@ export class LoginForm extends Component {
               placeholder="!Testing1"
               type="password" 
               name="password" 
-              id="password"/>
+              id="password"
+            />
           </div>
           <div className="btns-container">
             <button 
