@@ -1,4 +1,4 @@
-# Ratemusic Client 
+# Rate Music Client 
 
 (https://elan-ratemusic.netlify.com/)
 
