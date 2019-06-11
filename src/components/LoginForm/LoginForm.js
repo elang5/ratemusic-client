@@ -30,6 +30,20 @@ export class LoginForm extends Component {
         this.setState({ error: err.error })
       })
   }
+
+  handleDemoLogin = () => {
+    AuthApiService.postLogin({
+      user_name: 'testing',
+      password: '!Testing1'
+    })
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        this.props.onLoginSuccess()
+      })
+      .catch(err => {
+        this.setState({ error: err.error })
+      })
+  }
   render() {
     const { error } = this.state
     return (
@@ -67,11 +81,17 @@ export class LoginForm extends Component {
               name="password" 
               id="password"/>
           </div>
-          <div className="container">
+          <div className="btns-container">
             <button 
               type="submit" 
               className="submit-btn">
               Sign In
+            </button>
+            <button
+              type="button"
+              className="submit-btn demo"
+              onClick={this.handleDemoLogin}>
+              Demo Login
             </button>
           </div>
         </form>
