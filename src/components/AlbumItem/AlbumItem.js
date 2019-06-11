@@ -7,7 +7,7 @@ export class AlbumItem extends Component {
   render() {
     const { album, name, album_id, rating } = this.props
     return (
-      <div className="cell">
+      <div className="album-item">
         <div className="album-name-container">
           <h3 className="album-name">{name}</h3>
         </div>

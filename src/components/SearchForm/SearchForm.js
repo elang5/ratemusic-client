@@ -27,23 +27,23 @@ export default class SearchForm extends Component {
   render() {
     return (
       <header className="search-header">
-      <form 
-        className="search-form" 
-        onSubmit={(e) => this.props.searchAlbums(e)}
-      > 
-        <h1 className="red">Rate Music</h1>
-        <div className="input-fields">
-          <label htmlFor="album_search" className="search-label">
-            {this.props.name}
-          </label><br />
-          <input type="text" id="album_search" name="album_search" />
-        </div>
-        <div className="button-container">
-          <button type="submit">
-            Search
-          </button>
-        </div>
-      </form>
+        <form 
+          className="search-form" 
+          onSubmit={(e) => this.props.searchAlbums(e)}
+        > 
+          <h1 className="red">Rate Music</h1>
+          <div className="input-fields">
+            <label htmlFor="album_search" className="search-label">
+              {this.props.name}
+            </label><br />
+            <input type="text" id="album_search" name="album_search" />
+          </div>
+          <div className="button-container">
+            <button type="submit">
+              Search
+            </button>
+          </div>
+        </form>
       </header>
     )
   }

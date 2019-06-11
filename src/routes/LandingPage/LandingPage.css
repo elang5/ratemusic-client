@@ -1,23 +1,61 @@
 .landing-page-container {
-  margin: 2em;
+  width: 100%;
 }
 
 .landing-page-container > p {
   max-width: 75%;
-  font-size: 1rem;
+  font-size: 1.15rem;
+}
+
+.description-container, .screenshots-container {
+  margin: 2rem;
 }
 
 .homepage-link {
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.title {
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .homepage-btn {
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: none;
   border-radius: 5px;
   background-color: rgba(252, 61, 57, 0.73);
-  margin-top: 1em;
+  margin: 1rem 0;
+  justify-content: center;
 }
 
+.btn-container {
+  text-align: center;
+}
+
+.screenshots-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 2fr));
+  grid-gap: 2rem;
+  margin: 2rem;
+}
+
+.cell > p {
+  font-size: 18px;
+  padding-top: 1rem;
+}
+
+.cell > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cell {
+  border: 5px solid rgba(252, 61, 57, 0.73);
+  border-radius: 10px;
+  padding: 2rem;
+
+}
