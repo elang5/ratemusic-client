@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingHeader Component renders the LandingHeader component 1`] = `
+<header
+  className="landing-header"
+>
+  <h1
+    className="header-title"
+  >
+    Rate Music
+  </h1>
+</header>
+`;

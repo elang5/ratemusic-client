@@ -8,17 +8,17 @@ exports[`Nav Component renders the Nav component 1`] = `
     role="navigation"
     style={
       Object {
-        "marginLeft": "-22.4%",
+        "marginLeft": "-30.4%",
       }
     }
   >
     <div
       className="nav-item close menu"
+      onClick={[Function]}
     >
       <menuSVG
         className="svg menu"
         id="closebtn"
-        onClick={[Function]}
       />
       <h3
         className="nav-text"
@@ -26,87 +26,79 @@ exports[`Nav Component renders the Nav component 1`] = `
         CLOSE
       </h3>
     </div>
-    <div
-      className="nav-item logo"
+    <NavLink
+      className="nav-item link logo"
+      onClick={[Function]}
+      to="/albums"
     >
-      <NavLink
-        className="link logo"
-        onClick={[Function]}
-        to="/albums"
-      >
-        <logoSVG
-          className="svg logo"
-        />
-      </NavLink>
+      <logoSVG
+        className="svg logo"
+      />
       <h3
         className="nav-text logo"
       >
         RM
       </h3>
-    </div>
-    <div
-      className="nav-item register"
+    </NavLink>
+    <NavLink
+      className="nav-item link register"
+      onClick={[Function]}
+      to="/register"
     >
-      <NavLink
-        className="link register"
-        onClick={[Function]}
-        to="/register"
-      >
-        <registerSVG
-          className="svg register"
-        />
-      </NavLink>
+      <registerSVG
+        className="svg register"
+      />
       <h3
         className="nav-text register"
       >
         REGISTER
       </h3>
-    </div>
-    <div
-      className="nav-item albums"
+    </NavLink>
+    <NavLink
+      className="nav-item link albums"
+      onClick={[Function]}
+      to="/albums"
     >
-      <NavLink
-        className="link albums"
-        onClick={[Function]}
-        to="/albums"
-      >
-        <albumSVG
-          className="svg album"
-        />
-      </NavLink>
+      <albumSVG
+        className="svg album"
+      />
       <h3
         className="nav-text albums"
       >
         ALBUMS
       </h3>
-    </div>
-    <div
-      className="nav-item login"
+    </NavLink>
+    <NavLink
+      className="nav-item link login"
+      onClick={[Function]}
+      to="/login"
     >
-      <NavLink
-        className="link login"
-        onClick={[Function]}
-        to="/login"
-      >
-        <loginSVG
-          className="svg login"
-        />
-      </NavLink>
+      <loginSVG
+        className="svg login"
+      />
       <h3
         className="nav-text login"
       >
         LOGIN
       </h3>
-    </div>
+    </NavLink>
     <div
       className="nav-item social"
     >
-      <linkedInSVG
-        className="svg-social"
-      />
-      <spotifySVG
-        className="svg-social"
-      />
+      <a
+        href="https://www.linkedin.com/in/elang589/"
+      >
+        <linkedInSVG
+          className="svg-social linkedin"
+        />
+      </a>
+      <a
+        href="https://open.spotify.com/user/elang5"
+      >
+        <spotifySVG
+          className="svg-social spotify"
+        />
+      </a>
     </div>
   </nav>
   <div

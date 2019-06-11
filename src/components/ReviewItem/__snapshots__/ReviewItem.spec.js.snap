@@ -20,7 +20,7 @@ exports[`ReviewItem Component renders the ReviewItem component 1`] = `
   <p
     className="user_info"
   >
-    By: tester on 222
+    By: tester on 1/1/222
   </p>
 </li>
 `;

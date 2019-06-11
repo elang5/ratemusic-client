@@ -4,9 +4,25 @@ exports[`ReviewPage Component renders the ReviewPage component 1`] = `
 <div
   className="review-page"
 >
+  <a
+    className="album-listen"
+    href=""
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <button
+      className="listen-btn"
+    >
+      Listen to 
+    </button>
+  </a>
   <Link
+    className="album-art-link"
     to="/albums/1"
   >
+    <Loader
+      loading={true}
+    />
     <img
       alt=""
       className="album-art"

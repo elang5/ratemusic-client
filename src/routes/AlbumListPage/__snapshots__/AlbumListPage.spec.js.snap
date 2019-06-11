@@ -11,6 +11,9 @@ exports[`AlbumListPage Component renders the AlbumListPage component 1`] = `
   <section
     className="album-list-page"
   >
+    <Loader
+      loading={true}
+    />
     <div
       className="container"
     >

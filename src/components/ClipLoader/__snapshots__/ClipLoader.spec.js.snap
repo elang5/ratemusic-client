@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClipLoader Component renders the ClipLoader component 1`] = `
+<div
+  className="loader-container"
+>
+  <onlyUpdateForKeys(Loader)
+    className="loader"
+    color="rgba(252, 61, 57, 0.73)"
+    css={Object {}}
+    loading={true}
+    size={150}
+    sizeUnit="px"
+  />
+</div>
+`;

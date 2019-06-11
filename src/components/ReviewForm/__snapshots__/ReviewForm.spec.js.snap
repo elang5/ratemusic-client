@@ -12,7 +12,7 @@ exports[`ReviewForm Component renders the ReviewForm component 1`] = `
       className="album-info"
     >
       <h2
-        className="album-name"
+        className="album-title"
       >
         undefined
       </h2>
@@ -105,17 +105,17 @@ exports[`ReviewForm Component renders the ReviewForm component 1`] = `
       </label>
       <br />
       <textarea
-        cols="30"
+        cols="70"
         id="content"
         name="content"
-        rows="20"
+        rows="17"
       />
     </div>
     <button
       className="review-submit-btn"
       type="submit"
     >
-      Post review
+      Post
     </button>
   </form>
 </div>

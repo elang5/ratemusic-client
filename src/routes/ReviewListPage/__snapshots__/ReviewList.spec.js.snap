@@ -20,6 +20,8 @@ exports[`ReviewListPage Component renders the ReviewListPage component 1`] = `
     <a
       className="album-listen"
       href=""
+      rel="noopener noreferrer"
+      target="_blank"
     >
       <button
         className="listen-btn"

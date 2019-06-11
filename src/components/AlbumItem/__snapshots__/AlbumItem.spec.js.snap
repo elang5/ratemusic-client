@@ -2,11 +2,15 @@
 
 exports[`AlbumItem Component renders the AlbumItem component 1`] = `
 <div
-  className="cell"
+  className="album-item"
 >
-  <h3
-    className="album-name"
-  />
+  <div
+    className="album-name-container"
+  >
+    <h3
+      className="album-name"
+    />
+  </div>
   <div
     className="container"
   >
@@ -27,13 +31,17 @@ exports[`AlbumItem Component renders the AlbumItem component 1`] = `
 
 exports[`AlbumItem Component renders the AlbumItem component given props 1`] = `
 <div
-  className="cell"
+  className="album-item"
 >
-  <h3
-    className="album-name"
+  <div
+    className="album-name-container"
   >
-    test
-  </h3>
+    <h3
+      className="album-name"
+    >
+      test
+    </h3>
+  </div>
   <div
     className="container"
   >

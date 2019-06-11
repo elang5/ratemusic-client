@@ -37,7 +37,7 @@ exports[`RegistrationForm Component renders the RegistrationForm component 1`] =
       className="label"
       htmlFor="user_name"
     >
-      User name
+      Username
     </label>
     <br />
     <input
@@ -56,7 +56,11 @@ exports[`RegistrationForm Component renders the RegistrationForm component 1`] =
     >
       Password
     </label>
-    <br />
+    <p
+      className="password-rules"
+    >
+      Please create an 8+ character password with a number, uppercase letter, and special character.
+    </p>
     <input
       id="password"
       name="password"
