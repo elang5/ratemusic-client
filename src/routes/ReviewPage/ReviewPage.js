@@ -28,7 +28,6 @@ export class ReviewPage extends Component {
 
     AlbumsApiService.getAlbum(this.props.match.params.albumId)
       .then(res => {
-        console.log(res)
         this.setState({ 
           album_art: res.images[1].url,
           album_name: res.name,

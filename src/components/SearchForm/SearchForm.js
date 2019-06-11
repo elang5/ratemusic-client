@@ -5,13 +5,13 @@ export default class SearchForm extends Component {
   static defaultProps = {
     name: '',
     albums: [],
-    handleSubmit: () => {}
+    searchAlbums: () => {}
   }
 
   constructor() {
     super()
     this.state = {
-      album: '',
+      albumSearch: '',
       albums: [],
       error: null
     }
@@ -23,6 +23,11 @@ export default class SearchForm extends Component {
     })
   }
 
+  handleAlbumChange = e => {
+    this.setState({ 
+      albumSearch: e.target.value
+     })
+  }
 
   render() {
     return (
@@ -36,7 +41,12 @@ export default class SearchForm extends Component {
             <label htmlFor="album_search" className="search-label">
               {this.props.name}
             </label><br />
-            <input type="text" id="album_search" name="album_search" />
+            <input 
+              type="text" 
+              id="album_search" 
+              name="album_search"
+              value={this.state.album}
+              onChange={this.handleAlbumChange} />
           </div>
           <div className="button-container">
             <button type="submit">
