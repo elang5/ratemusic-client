@@ -28,9 +28,9 @@ The albums page shows all of the albums which have a review stored in the databa
 The registration page utilizes basic validation for password entry, ensuring it is at least 8 characters in length, including an uppercase letter, number, and special character. Upon successful registration, you will be taken to the login page. 
 
 ### Login Page
-![Image of Login Page](https://raw.githubusercontent.com/elang5/ratemusic-client/master/src/img/login.png)
+![Image of Login Page](https://raw.githubusercontent.com/elang5/ratemusic-client/master/src/img/loginpage.png)
 
-Upon successful login, you will be taken to the albums list page. 
+Upon successful login, you will be taken to the albums list page. Click the demo login button to sign in with testing credentials. 
 
 ### Review List Page
 ![Image of Review List Page](https://raw.githubusercontent.com/elang5/ratemusic-client/master/src/img/reviewlist.png)

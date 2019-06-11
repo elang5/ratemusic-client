@@ -31,7 +31,7 @@ export default function LandingPage() {
           </div>
           <div className="cell">
             <img src={reviewlist} alt="reviewlist-screenshot"/>
-            <p>Click on a review from the review list page to read the review. You can also click on the links at the top of the page to post a review or listen to the album on Spotify! Be sure to create an account or use the test credentials provided in order to post a review.</p>
+            <p>Click on a review from the review list page to read the review. You can also click on the links at the top of the page to post a review or listen to the album on Spotify! Be sure to create an account or use the demo login button provided in order to post a review.</p>
           </div>
           <div className="cell">
             <img src={reviewpage} alt="reviewpage-screenshot"/>
