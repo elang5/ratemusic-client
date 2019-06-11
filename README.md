@@ -51,5 +51,5 @@ The review page, similar to the review list page, has a link to listen to the al
 
 ## Scripts
 
--Start the application for development: `npm start`
--Run development tests: `npm test`
+- Start the application for development: `npm start`
+- Run development tests: `npm test`
