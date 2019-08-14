@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setLoading, setAlbums } from "../../actions";
+import { setLoading, setAlbums, setSearch } from "../../actions";
 import AlbumItem from "../../components/AlbumItem/AlbumItem";
 import AlbumsApiService from "../../services/albums-api-service";
 import SearchForm from "../../components/SearchForm/SearchForm";
@@ -36,7 +36,6 @@ export class AlbumListPage extends Component {
                 .catch(err => console.log(err));
             })
         ).then(reviews => {
-          // this.setState({ albums: albums, loading: false })
           this.props.dispatch(setLoading(false));
           this.props.dispatch(setAlbums(albums));
         });
@@ -62,11 +61,12 @@ export class AlbumListPage extends Component {
     e.preventDefault();
     let albums;
     const { album_search } = e.target;
-    AlbumsApiService.searchAlbums(album_search.value).then(res => {
-      albums = res;
-      return Promise.all(
-        albums &&
-          albums.map(album => {
+    AlbumsApiService.searchAlbums(album_search.value)
+      .then(albums_ => {
+        this.setState({ loading: true });
+        albums = albums_;
+        return Promise.all(
+          albums.items.map(album => {
             return AlbumsApiService.getAlbumReviews(album.id)
               .then(reviews => {
                 const albumRating = reviews.map(review => review.rating);
@@ -74,29 +74,29 @@ export class AlbumListPage extends Component {
                   albumRating.reduce((sum, rating) => {
                     return sum + rating;
                   }, 0) / albumRating.length;
-                album.rating = averageRating.toFixed(0);
-                return reviews;
+                return (album.rating = averageRating);
               })
-              .catch(err => console.log(err));
+              .catch(err => {
+                if (!err.error === "No reviews were found") {
+                  this.setState({ error: err.error });
+                }
+              });
           })
-      )
-        .then(reviews => this.setState({ albums: albums, loading: false }))
-        .catch(err => {
-          if (!err.error === "No reviews were found") {
-            this.setState({ error: err.error });
-          }
+        ).then(albumRatings => {
+          this.props.dispatch(setLoading(false));
+          this.props.dispatch(setSearch(albums.items));
         });
-    });
+      })
+      .catch(err => this.setState({ error: err.error }));
   };
   render() {
-    const { error, albums, searchResults } = this.state;
-    console.log(this.props.loading);
+    const { error } = this.state;
     return (
       <>
         <SearchForm
           name={"Search for Albums: "}
           searchAlbums={this.handleSearchSubmit}
-          albums={albums}
+          albums={this.props.albums}
         />
         <section className="album-list-page">
           {error && (
@@ -105,8 +105,8 @@ export class AlbumListPage extends Component {
           <ClipLoader loading={this.props.loading} />
           <div className="container">
             <ul className="album-list">
-              {searchResults.length > 1
-                ? this.renderAlbums(searchResults)
+              {this.props.searchResults.length > 1
+                ? this.renderAlbums(this.props.searchResults)
                 : this.renderAlbums(this.props.albums)}
             </ul>
           </div>
@@ -118,7 +118,8 @@ export class AlbumListPage extends Component {
 
 const mapStateToProps = state => ({
   albums: state.albums,
-  loading: state.loading
+  loading: state.loading,
+  searchResults: state.searchResults
 });
 
 export default connect(mapStateToProps)(AlbumListPage);

@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import * as actions from "../actions";
 
 const initialState = {
@@ -29,6 +28,10 @@ export const albumsReducer = (state = initialState, action) => {
     case "SET_ALBUMS":
       return Object.assign({}, state, {
         albums: action.albums
+      });
+    case "SET_SEARCH":
+      return Object.assign({}, state, {
+        searchResults: action.searchResults
       });
     default:
       return state;

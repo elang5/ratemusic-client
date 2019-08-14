@@ -9,3 +9,9 @@ export const setLoading = loading => ({
   type: SET_LOADING,
   loading
 });
+
+export const SET_SEARCH = "SET_SEARCH";
+export const setSearch = searchResults => ({
+  type: SET_SEARCH,
+  searchResults
+});
