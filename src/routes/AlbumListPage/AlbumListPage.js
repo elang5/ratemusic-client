@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setLoading, setAlbums, setSearch } from "../../actions";
+import { setLoading, setAlbums, setSearch, setError } from "../../actions";
 import AlbumItem from "../../components/AlbumItem/AlbumItem";
 import AlbumsApiService from "../../services/albums-api-service";
 import SearchForm from "../../components/SearchForm/SearchForm";
@@ -8,12 +8,6 @@ import ClipLoader from "../../components/ClipLoader/ClipLoader";
 import "./AlbumListPage.css";
 
 export class AlbumListPage extends Component {
-  state = {
-    albums: [],
-    searchResults: [],
-    error: null
-  };
-
   componentDidMount() {
     this.props.dispatch(setLoading(true));
     let albums;
@@ -40,7 +34,7 @@ export class AlbumListPage extends Component {
           this.props.dispatch(setAlbums(albums));
         });
       })
-      .catch(err => this.setState({ error: err.error }));
+      .catch(err => this.props.dispatch(setError(err.error)));
   }
 
   renderAlbums = albums => {
@@ -78,7 +72,7 @@ export class AlbumListPage extends Component {
               })
               .catch(err => {
                 if (!err.error === "No reviews were found") {
-                  this.setState({ error: err.error });
+                  this.props.dispatch(setError(err.error));
                 }
               });
           })
@@ -87,10 +81,9 @@ export class AlbumListPage extends Component {
           this.props.dispatch(setSearch(albums.items));
         });
       })
-      .catch(err => this.setState({ error: err.error }));
+      .catch(err => this.props.dispatch(setError(err.error)));
   };
   render() {
-    const { error } = this.state;
     return (
       <>
         <SearchForm
@@ -99,7 +92,7 @@ export class AlbumListPage extends Component {
           albums={this.props.albums}
         />
         <section className="album-list-page">
-          {error && (
+          {this.props.error && (
             <p className="error">There was an error. Please try again.</p>
           )}
           <ClipLoader loading={this.props.loading} />

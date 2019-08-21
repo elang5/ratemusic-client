@@ -1,5 +1,3 @@
-import * as actions from "../actions";
-
 const initialState = {
   albums: [],
   reviews: [],
@@ -33,6 +31,15 @@ export const albumsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         searchResults: action.searchResults
       });
+    case "SET_ERROR":
+      return Object.assign({}, state, {
+        error: action.error
+      });
+    case "SET_USER":
+      return Object.assign({}, state, {
+        user_name: action.user_name
+      });
+
     default:
       return state;
   }
