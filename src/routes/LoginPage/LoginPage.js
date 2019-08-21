@@ -1,32 +1,37 @@
-import React, { Component } from 'react'
-import LoginForm from '../../components/LoginForm/LoginForm'
-import './Login.css'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { clearError } from "../../actions";
+import LoginForm from "../../components/LoginForm/LoginForm";
+import "./Login.css";
 
 class LoginPage extends Component {
   static defaultProps = {
     location: {},
     history: {
-      push: () => {},
-    },
-  }
+      push: () => {}
+    }
+  };
 
   handleLoginSuccess = () => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/albums'
-    history.push(destination)
-  }
-  
+    this.props.dispatch(clearError());
+    const { location, history } = this.props;
+    const destination = (location.state || {}).from || "/albums";
+    history.push(destination);
+  };
+
   render() {
     return (
       <>
-      <div className="login-page">
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
-        />
-      </div>
+        <div className="login-page">
+          <LoginForm onLoginSuccess={this.handleLoginSuccess} />
+        </div>
       </>
-    )
+    );
   }
 }
 
-export default LoginPage
+const mapStateToProps = state => ({
+  error: state.error
+});
+
+export default connect(mapStateToProps)(LoginPage);

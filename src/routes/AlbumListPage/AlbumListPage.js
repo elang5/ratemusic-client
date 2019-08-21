@@ -112,7 +112,8 @@ export class AlbumListPage extends Component {
 const mapStateToProps = state => ({
   albums: state.albums,
   loading: state.loading,
-  searchResults: state.searchResults
+  searchResults: state.searchResults,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(AlbumListPage);

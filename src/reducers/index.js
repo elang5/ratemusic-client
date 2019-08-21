@@ -39,6 +39,10 @@ export const albumsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         user_name: action.user_name
       });
+    case "CLEAR_ERROR":
+      return Object.assign({}, state, {
+        error: null
+      });
 
     default:
       return state;

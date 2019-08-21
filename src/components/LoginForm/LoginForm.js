@@ -24,7 +24,6 @@ class LoginForm extends Component {
       password: password.value
     })
       .then(res => {
-        password.value = "";
         this.props.dispatch(setUser(""));
         TokenService.saveAuthToken(res.authToken);
         this.props.onLoginSuccess();
