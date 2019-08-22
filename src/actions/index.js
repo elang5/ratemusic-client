@@ -62,3 +62,9 @@ export const setReviewContent = content => ({
   type: SET_REVIEW_CONTENT,
   content
 });
+
+export const SET_ALBUM_SEARCH = "SET_ALBUM_SEARCH";
+export const setAlbumSearch = album_search => ({
+  type: SET_ALBUM_SEARCH,
+  album_search
+});

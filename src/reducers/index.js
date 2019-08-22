@@ -63,6 +63,10 @@ export const albumsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         content: action.content
       });
+    case "SET_ALBUM_SEARCH":
+      return Object.assign({}, state, {
+        albumSearch: action.album_search
+      });
     default:
       return state;
   }
