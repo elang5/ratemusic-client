@@ -30,8 +30,4 @@ class LoginPage extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  error: state.error
-});
-
-export default connect(mapStateToProps)(LoginPage);
+export default connect()(LoginPage);

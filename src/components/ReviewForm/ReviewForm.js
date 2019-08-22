@@ -1,32 +1,32 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+  setReviewAlbum,
+  setReviewTitle,
+  setReviewRating,
+  setReviewContent,
+  setError
+} from "../../actions";
 import AlbumApiService from "../../services/albums-api-service";
 import "./ReviewForm.css";
 
 export class ReviewForm extends Component {
-  state = {
-    error: null,
-    album: {},
-    title: "",
-    rating: 1,
-    content: ""
-  };
-
   componentDidMount() {
     AlbumApiService.getAlbum(this.props.match.params.albumId)
-      .then(res => this.setState({ album: res }))
-      .catch(err => this.setState({ error: err.error }));
+      .then(res => this.props.dispatch(setReviewAlbum(res)))
+      .catch(err => this.props.dispatch(setError(err.error)));
   }
 
   handleTitleChange = e => {
-    this.setState({ title: e.target.value });
+    this.props.dispatch(setReviewTitle(e.target.value));
   };
 
   handleRatingChange = e => {
-    this.setState({ rating: e.target.value });
+    this.props.dispatch(setReviewRating(e.target.value));
   };
 
   handleContentChange = e => {
-    this.setState({ content: e.target.value });
+    this.props.dispatch(setReviewContent(e.target.value));
   };
 
   handleSubmit = e => {
@@ -34,7 +34,7 @@ export class ReviewForm extends Component {
     const { albumId } = this.props.match.params;
     const albumImage = AlbumApiService.getAlbum(albumId)
       .then(album => album.images[1].url)
-      .catch(err => this.setState({ error: err.error }));
+      .catch(err => this.props.dispatch(setError(err.error)));
     const { title, content, rating } = e.target;
     const { history } = this.props;
     AlbumApiService.postReview(
@@ -45,13 +45,14 @@ export class ReviewForm extends Component {
       albumImage
     )
       .then(() => history.push(`/albums/${albumId}`))
-      .catch(err =>
-        this.setState({ error: err.error }, history.push("/login"))
+      .catch(
+        err => this.props.dispatch(setError(err.error)),
+        history.push("/login")
       );
   };
 
   render() {
-    const { error, album, title, rating, content } = this.state;
+    const { error, album, title, rating, content } = this.props;
     return (
       <div className="review-form-container">
         <form className="review-form" onSubmit={this.handleSubmit}>
@@ -110,4 +111,11 @@ export class ReviewForm extends Component {
   }
 }
 
-export default ReviewForm;
+const mapStateToProps = state => ({
+  album: state.album,
+  title: state.title,
+  rating: state.rating,
+  content: state.content
+});
+
+export default connect(mapStateToProps)(ReviewForm);

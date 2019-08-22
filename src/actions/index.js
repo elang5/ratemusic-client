@@ -22,13 +22,43 @@ export const setError = error => ({
   error
 });
 
+export const CLEAR_ERROR = "CLEAR_ERROR";
+export const clearError = () => ({
+  type: CLEAR_ERROR
+});
+
 export const SET_USER = "SET_USER";
 export const setUser = user_name => ({
   type: SET_USER,
   user_name
 });
 
-export const CLEAR_ERROR = "CLEAR_ERROR";
-export const clearError = () => ({
-  type: CLEAR_ERROR
+export const SET_NAME = "SET_NAME";
+export const setName = full_name => ({
+  type: SET_NAME,
+  full_name
+});
+
+export const SET_REVIEW_ALBUM = "SET_REVIEW_ALBUM";
+export const setReviewAlbum = album => ({
+  type: SET_REVIEW_ALBUM,
+  album
+});
+
+export const SET_REVIEW_TITLE = "SET_REVIEW_TITLE";
+export const setReviewTitle = title => ({
+  type: SET_REVIEW_TITLE,
+  title
+});
+
+export const SET_REVIEW_RATING = "SET_REVIEW_RATING";
+export const setReviewRating = rating => ({
+  type: SET_REVIEW_RATING,
+  rating
+});
+
+export const SET_REVIEW_CONTENT = "SET_REVIEW_CONTENT";
+export const setReviewContent = content => ({
+  type: SET_REVIEW_CONTENT,
+  content
 });
