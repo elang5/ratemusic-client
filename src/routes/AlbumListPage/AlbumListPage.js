@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { setLoading, setAlbums, setSearch, setError } from "../../actions";
 import AlbumItem from "../../components/AlbumItem/AlbumItem";
@@ -7,9 +7,9 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import ClipLoader from "../../components/ClipLoader/ClipLoader";
 import "./AlbumListPage.css";
 
-export class AlbumListPage extends Component {
-  componentDidMount() {
-    this.props.dispatch(setLoading(true));
+function AlbumListPage(props) {
+  useEffect(() => {
+    props.dispatch(setLoading(true));
     let albums;
     AlbumsApiService.getAlbums()
       .then(res => {
@@ -30,14 +30,14 @@ export class AlbumListPage extends Component {
                 .catch(err => console.log(err));
             })
         ).then(reviews => {
-          this.props.dispatch(setLoading(false));
-          this.props.dispatch(setAlbums(albums));
+          props.dispatch(setLoading(false));
+          props.dispatch(setAlbums(albums));
         });
       })
-      .catch(err => this.props.dispatch(setError(err.error)));
-  }
+      .catch(err => props.dispatch(setError(err.error)));
+  }, []);
 
-  renderAlbums = albums => {
+  const renderAlbums = albums => {
     return albums.map((album, index) => (
       <li className="album" key={index}>
         <AlbumItem
@@ -51,13 +51,13 @@ export class AlbumListPage extends Component {
     ));
   };
 
-  handleSearchSubmit = e => {
+  const handleSearchSubmit = e => {
     e.preventDefault();
     let albums;
     const { album_search } = e.target;
     AlbumsApiService.searchAlbums(album_search.value)
       .then(albums_ => {
-        this.setState({ loading: true });
+        props.dispatch(setLoading(true));
         albums = albums_;
         return Promise.all(
           albums.items.map(album => {
@@ -72,41 +72,40 @@ export class AlbumListPage extends Component {
               })
               .catch(err => {
                 if (!err.error === "No reviews were found") {
-                  this.props.dispatch(setError(err.error));
+                  props.dispatch(setError(err.error));
                 }
               });
           })
         ).then(albumRatings => {
-          this.props.dispatch(setLoading(false));
-          this.props.dispatch(setSearch(albums.items));
+          props.dispatch(setLoading(false));
+          props.dispatch(setSearch(albums.items));
         });
       })
-      .catch(err => this.props.dispatch(setError(err.error)));
+      .catch(err => props.dispatch(setError(err.error)));
   };
-  render() {
-    return (
-      <>
-        <SearchForm
-          name={"Search for Albums: "}
-          searchAlbums={this.handleSearchSubmit}
-          albums={this.props.albums}
-        />
-        <section className="album-list-page">
-          {this.props.error && (
-            <p className="error">There was an error. Please try again.</p>
-          )}
-          <ClipLoader loading={this.props.loading} />
-          <div className="container">
-            <ul className="album-list">
-              {this.props.searchResults.length > 1
-                ? this.renderAlbums(this.props.searchResults)
-                : this.renderAlbums(this.props.albums)}
-            </ul>
-          </div>
-        </section>
-      </>
-    );
-  }
+
+  return (
+    <>
+      <SearchForm
+        name={"Search for Albums: "}
+        searchAlbums={handleSearchSubmit}
+        albums={props.albums}
+      />
+      <section className="album-list-page">
+        {props.error && (
+          <p className="error">There was an error. Please try again.</p>
+        )}
+        <ClipLoader loading={props.loading} />
+        <div className="container">
+          <ul className="album-list">
+            {props.searchResults.length > 1
+              ? renderAlbums(props.searchResults)
+              : renderAlbums(props.albums)}
+          </ul>
+        </div>
+      </section>
+    </>
+  );
 }
 
 const mapStateToProps = state => ({
