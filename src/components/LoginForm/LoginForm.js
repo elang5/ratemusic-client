@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { setUser, setError } from "../../actions";
 import TokenService from "../../services/token-service";
