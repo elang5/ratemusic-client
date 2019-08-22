@@ -1,33 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { clearError } from "../../actions";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import "./Login.css";
 
-class LoginPage extends Component {
-  static defaultProps = {
-    location: {},
-    history: {
-      push: () => {}
-    }
-  };
-
-  handleLoginSuccess = () => {
-    this.props.dispatch(clearError());
-    const { location, history } = this.props;
+function LoginPage(props) {
+  const handleLoginSuccess = () => {
+    props.dispatch(clearError());
+    const { location, history } = props;
     const destination = (location.state || {}).from || "/albums";
     history.push(destination);
   };
 
-  render() {
-    return (
-      <>
-        <div className="login-page">
-          <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-        </div>
-      </>
-    );
-  }
+  return (
+    <>
+      <div className="login-page">
+        <LoginForm onLoginSuccess={handleLoginSuccess} />
+      </div>
+    </>
+  );
 }
 
 export default connect()(LoginPage);
+
+LoginPage.defaultProps = {
+  location: {},
+  history: {
+    push: () => {}
+  }
+};
