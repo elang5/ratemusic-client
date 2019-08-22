@@ -68,3 +68,33 @@ export const setAlbumSearch = album_search => ({
   type: SET_ALBUM_SEARCH,
   album_search
 });
+
+export const SET_REVIEWS = "SET_REVIEWS";
+export const setReviews = reviews => ({
+  type: SET_REVIEWS,
+  reviews
+});
+
+export const SET_ALBUM_NAME = "SET_ALBUM_NAME";
+export const setAlbumName = album_name => ({
+  type: SET_ALBUM_NAME,
+  album_name
+});
+
+export const SET_ALBUM_URL = "SET_ALBUM_URL";
+export const setAlbumURL = album_url => ({
+  type: SET_ALBUM_URL,
+  album_url
+});
+
+export const SET_ALBUM_ART = "SET_ALBUM_ART";
+export const setAlbumArt = album_art => ({
+  type: SET_ALBUM_ART,
+  album_art
+});
+
+export const SET_REVIEW = "SET_REVIEW";
+export const setReview = review => ({
+  type: SET_REVIEW,
+  review
+});

@@ -27,6 +27,10 @@ export const albumsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         albums: action.albums
       });
+    case "SET_REVIEWS":
+      return Object.assign({}, state, {
+        reviews: action.reviews
+      });
     case "SET_SEARCH":
       return Object.assign({}, state, {
         searchResults: action.searchResults
@@ -66,6 +70,22 @@ export const albumsReducer = (state = initialState, action) => {
     case "SET_ALBUM_SEARCH":
       return Object.assign({}, state, {
         albumSearch: action.album_search
+      });
+    case "SET_ALBUM_NAME":
+      return Object.assign({}, state, {
+        album_name: action.album_name
+      });
+    case "SET_ALBUM_URL":
+      return Object.assign({}, state, {
+        album_url: action.album_url
+      });
+    case "SET_ALBUM_ART":
+      return Object.assign({}, state, {
+        album_art: action.album_art
+      });
+    case "SET_REVIEW":
+      return Object.assign({}, state, {
+        review: action.review
       });
     default:
       return state;
